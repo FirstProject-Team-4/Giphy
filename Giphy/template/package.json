@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "live-server ."
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.14.0"
+  }
+}
