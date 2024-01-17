@@ -12,6 +12,10 @@ export const loadPage = (page = '') => {
       setActiveNav(HOME);
       return renderHome();
 
+    case TRENDING:
+      setActiveNav(TRENDING);
+      return renderTrending();
+
       // missing partial implementation
 
     /* if the app supports error logging, use default to log mapping errors */
@@ -32,13 +36,13 @@ export const loadPage = (page = '') => {
 
 // // private functions
 
-// const renderHome = () => {
-//   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
-// };
+const renderHome = () => {
+  q(CONTAINER_SELECTOR).innerHTML = toHomeView();
+};
 
-// const renderCategories = () => {
-//   // missing implementation
-// };
+const renderTrending = () => {
+  // missing implementation
+};
 
 // const renderFavorites = () => {
 //   // missing implementation
