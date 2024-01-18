@@ -1,4 +1,4 @@
-import { Trending_URL } from '../common/constants.js';
+import { Trending_URL,search_URL } from '../common/constants.js';
 
 
 
@@ -7,7 +7,11 @@ export const loadTrending=async()=>{
     const result=await response.json();
     return result.data;
 }
-
+export const loadTrendingSearch=async(searchTerm)=>{
+    const response =await fetch(search_URL(searchTerm))
+    const result=await response.json();
+    return result.data;
+}
 // export const loadCategory = (id = null) => {
 //   const category = getCategory(id);
 

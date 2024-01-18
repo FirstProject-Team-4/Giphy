@@ -22,8 +22,8 @@ const defaultOffset = 0;
  * @param {number} offset - The offset for pagination.
  * @returns {string} The URL for trending GIFs.
  */
-export const Trending_URL=(limit=defaultLimit,offset=defaultOffset)=>`https://api.giphy.com/v1/gifs/trending?api_key=$
-{APY_KEY}&limit=${limit}&offset=${offset}&rating=g&bundle=messaging_non_clips`;
+export const Trending_URL=(limit=defaultLimit,offset=defaultOffset)=>`https://api.giphy.com/v1/gifs/trending?api_key=
+${APY_KEY}&limit=${limit}&offset=${offset}&rating=g&bundle=messaging_non_clips`;
 
 /**
  * Generates the URL for retrieving GIFs by their IDs.

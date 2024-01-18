@@ -44,7 +44,7 @@ const renderHome = () => {
 };
 
 const renderTrending = async() => {
-  const trendingGifs=await loadTrending();
+  const trendingGifs=await loadTrending(30);
  q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trendingGifs);
 };
 
