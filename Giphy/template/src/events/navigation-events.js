@@ -3,7 +3,8 @@ import { toHomeView } from '../views/home-view.js';
 // import { toMoviesFromCategoryView } from '../views/movie-views.js';
 import { q, setActiveNav } from './helpers.js';
 import { loadTrending } from '../requests/request-service.js';
-import { toTrengingView } from '../views/trending-view.js';
+import { toTrendingView } from '../views/trending-view.js';
+
 
 // public API
 export const loadPage = (page = '') => {
@@ -44,7 +45,7 @@ const renderHome = () => {
 
 const renderTrending = async() => {
   const trendingGifs=await loadTrending();
- q(CONTAINER_SELECTOR).innerHTML = toTrengingView(trendingGifs);
+ q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trendingGifs);
 };
 
 // const renderFavorites = () => {
