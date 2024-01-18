@@ -1,11 +1,10 @@
 import { CONTAINER_SELECTOR, HOME, TRENDING } from '../common/constants.js';
 import { toHomeView } from '../views/home-view.js';
-// import { toMoviesFromCategoryView } from '../views/movie-views.js';
 import { q, setActiveNav } from './helpers.js';
 import { loadTrending ,loadGifId} from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toGifDetailsView } from '../views/gif-details-view.js';
-
+import { FAVORITES } from '../common/constants.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -20,7 +19,9 @@ export const loadPage = (page = '') => {
       setActiveNav(TRENDING);
       return renderTrending();
 
-      // missing partial implementation
+      case FAVORITES:
+      setActiveNav(FAVORITES);
+      return renderFavorites();
 
     /* if the app supports error logging, use default to log mapping errors */
     default: return null;
@@ -52,9 +53,10 @@ export const renderGifDetails =async (id) => {
   const details=await loadGifId(id);
   q(CONTAINER_SELECTOR).innerHTML = toGifDetailsView(details);
 };
-// const renderFavorites = () => {
-//   // missing implementation
-// };
+
+const renderFavorites = async(id) => {
+  // missing implementation
+};
 
 // const renderAbout = () => {
 //   // missing implementation
