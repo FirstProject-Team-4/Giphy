@@ -3,18 +3,14 @@ export const toTrendingView=(trendingGifs)=>{
     <section class="trending">
     <h2>Trending</h2>
     <ul>
-      ${trendingGifs.map(toTrengingItemView).join('')}
+      ${trendingGifs.map(toTrendingItemView).join('')}
     </ul>
   </section>
   `;
 };
 
-const toTrengingItemView=(trendingItem)=>`
-<button class='idGif' data='${trendingItem.id}'>Button</button>
+const toTrendingItemView=(trendingItem)=>`
 <li>
-  <img src="${trendingItem.images.fixed_width.url}" alt="${trendingItem.title}">
-  </button>
-</a>
+    <img src="${trendingItem.images.fixed_width.url}" alt="${trendingItem.title}" class='idGif' data='${trendingItem.id}'>
 </li>
-
-`
+`;
