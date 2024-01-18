@@ -1,4 +1,4 @@
-export const toTrengingView=(trendingGifs)=>{
+export const toTrendingView=(trendingGifs)=>{
     return `
     <section class="trending">
     <h2>Trending</h2>
