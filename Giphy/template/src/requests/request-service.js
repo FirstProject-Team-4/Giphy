@@ -7,7 +7,7 @@ export const loadTrending=async()=>{
     const result=await response.json();
     return result.data;
 }
-export const loadTrendingSearch=async(searchTerm)=>{
+export const loadSearch=async(searchTerm)=>{
     const response =await fetch(search_URL(searchTerm))
     const result=await response.json();
     return result.data;
