@@ -3,6 +3,7 @@ import { toHomeView } from '../views/home-view.js';
 // import { toMoviesFromCategoryView } from '../views/movie-views.js';
 import { q, setActiveNav } from './helpers.js';
 import { loadTrending } from '../requests/request-service.js';
+import { toTrengingView } from '../views/trending-view.js';
 
 // public API
 export const loadPage = (page = '') => {
