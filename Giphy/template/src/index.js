@@ -31,15 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
     }
+    if(event.target.classList.contains('search-button')){
+
+      const search =q('#search').value
+      console.log(search);
+      renderSearchItems(search);
+    }
 
    });
+   document.getElementById('search').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      const search = q('#search').value;
+      console.log(search);
+      renderSearchItems(search);
+    }
+});
 
-  // search events
-  q('input#search').addEventListener('input', event => {
-    renderSearchItems(event.target.value);
-  });
 
   loadPage(HOME);
+  
 
 
 });
