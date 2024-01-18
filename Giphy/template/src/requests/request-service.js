@@ -20,6 +20,9 @@ export const loadGifId=async(id)=>{
 }
 export const loadFavoriteGifs=async()=>{
     const favorites = getFavorites().join(',');
+    if (!favorites){
+     return [];
+    }
     const response =await fetch(IDs_URL(favorites));
     const result=await response.json();
     return result.data;
