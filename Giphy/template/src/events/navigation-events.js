@@ -1,6 +1,6 @@
 import { CONTAINER_SELECTOR, HOME } from '../common/constants.js';
 import { toHomeView } from '../views/home-view.js';
-import { toMoviesFromCategoryView } from '../views/movie-views.js';
+
 import { q, setActiveNav } from './helpers.js';
 
 // public API
