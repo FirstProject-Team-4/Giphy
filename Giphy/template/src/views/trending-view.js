@@ -14,3 +14,4 @@ const toTrendingItemView=(trendingItem)=>`
     <img src="${trendingItem.images.fixed_width.url}" alt="${trendingItem.title}" class='idGif' data='${trendingItem.id}'>
 </li>
 `;
+

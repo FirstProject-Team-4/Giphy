@@ -8,4 +8,8 @@
 <p>${trendingItem.user.username}</p>
 </li>
 </div>
+<div class='description'>
+<img src='${trendingItem.user.avatar_url}' alt="${trendingItem.user.username}">
+<p>${trendingItem.user.description}</p>
+</div>
 `
