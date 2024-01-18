@@ -99,7 +99,11 @@ span.favorite:hover {
 }
 
 /* End template styling */
-
-
+#img{
+  width: 20px;
+}
+#img-loop{
+  background-color:rgb(102, 102, 186)
+}
 
 /* Add your styles below */
