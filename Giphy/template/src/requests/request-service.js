@@ -1,4 +1,5 @@
 import { Trending_URL,search_URL,ID_URL,IDs_URL } from '../common/constants.js';
+import {getFavorites} from '../data/favorites.js';
 
 
 
@@ -14,6 +15,12 @@ export const loadSearch=async(searchTerm)=>{
 }
 export const loadGifId=async(id)=>{
     const response =await fetch(ID_URL(id));
+    const result=await response.json();
+    return result.data;
+}
+export const loadFavoriteGifs=async()=>{
+    const favorites = getFavorites().join(',');
+    const response =await fetch(IDs_URL(favorites));
     const result=await response.json();
     return result.data;
 }

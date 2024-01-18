@@ -8,9 +8,9 @@ export const ABOUT = 'about';
 
 export const CONTAINER_SELECTOR = '#container';
 
-export const FULL_HEART = '❤';
+export const FULL_STAR = '⭐';
 
-export const EMPTY_HEART = '♡';
+export const EMPTY_STAR = '☆';
 
 export const APY_KEY='RAHcDmbbXr75YCd1PKOMAnAMwOeBaGni';
 const defaultLimit = 25;
