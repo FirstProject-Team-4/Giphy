@@ -39,8 +39,7 @@ export const IDs_URL=(IDs)=>`https://api.giphy.com/v1/gifs?api_key=${APY_KEY}&id
  * @param {string} id - The ID of the GIF.
  * @returns {string} The URL for retrieving the GIF.
  */
-export const ID_URL=(id)=>'https://api.giphy.com/v1/gifs/ycTrWycYMLlUNoHl73?api_key=RAHcDmbbXr75YCd1PKOMAnAMwOeBaGni&rating=g'
-//`https://api.giphy.com/v1/gifs/${id}?api_key=${APY_KEY}&rating=g`;
+export const ID_URL=(id)=>`https://api.giphy.com/v1/gifs/${id}?api_key=${APY_KEY}&rating=g`
 
 /**
  * Generates the search URL for Giphy API based on the provided search term, limit, and offset.

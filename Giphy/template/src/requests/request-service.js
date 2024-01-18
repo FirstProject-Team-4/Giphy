@@ -1,4 +1,4 @@
-import { Trending_URL,search_URL,ID_URL } from '../common/constants.js';
+import { Trending_URL,search_URL,ID_URL,IDs_URL } from '../common/constants.js';
 
 
 
@@ -12,8 +12,8 @@ export const loadSearch=async(searchTerm)=>{
     const result=await response.json();
     return result.data;
 }
-export const loadGifyId=async()=>{
-    const response =await fetch('https://api.giphy.com/v1/gifs/ycTrWycYMLlUNoHl73?api_key=RAHcDmbbXr75YCd1PKOMAnAMwOeBaGni&rating=g')
+export const loadGifId=async(id)=>{
+    const response =await fetch(ID_URL(id));
     const result=await response.json();
     return result.data;
 }

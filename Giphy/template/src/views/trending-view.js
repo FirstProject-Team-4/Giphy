@@ -10,11 +10,11 @@ export const toTrendingView=(trendingGifs)=>{
 };
 
 const toTrengingItemView=(trendingItem)=>`
-<div class='idGif'>
+<button class='idGif' data='${trendingItem.id}'>Button</button>
 <li>
-<a href="${trendingItem.id}">
   <img src="${trendingItem.images.fixed_width.url}" alt="${trendingItem.title}">
+  </button>
 </a>
 </li>
-</div>
+
 `
