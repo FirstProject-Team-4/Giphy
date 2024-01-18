@@ -4,6 +4,7 @@ import { q } from './events/helpers.js';
 import { loadPage, } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderGifDetails } from './events/navigation-events.js';
+import { renderUpload } from './events/navigation-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -16,16 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
       loadPage(event.target.getAttribute('data-page'));
     }
 
-    // show category events
+    // show  events
     if (event.target.classList.contains('idGif')) {
       console.log(event.target.getAttribute('data'));
       renderGifDetails(event.target.getAttribute('data'));
     }
 
-  //   // show movie events
-  //   if (event.target.classList.contains(/* your button class here */)) {
-  //     renderMovieDetails(+event.target.getAttribute(/* your correct data attribute here */));
-  //   }
+    if (event.target.classList.contains('uploadGif')) {
+      const unpload = q('#fileInput').value;
+      console.log(unpload)
+      renderUpload(unpload);
+    }
 
     // toggle favorite event
     if (event.target.classList.contains('favorite')) {

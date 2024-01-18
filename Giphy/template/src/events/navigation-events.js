@@ -52,7 +52,7 @@ export const loadPage = (page = '') => {
 const renderHome = () => {
   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
-const renderUpload = () => {
+export const renderUpload = () => {
   q(CONTAINER_SELECTOR).innerHTML = toUploadView();
 };
 
