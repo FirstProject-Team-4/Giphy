@@ -1,5 +1,5 @@
 import { Trending_URL } from '../common/constants.js';
-import { getCategories, getMoviesGeneralInfo, getMovieById, getCategory, searchMovies } from '../data/movies.js';
+
 
 
 export const loadTrending=async()=>{
