@@ -39,12 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
    });
+   //let recentSearches = [];
    document.getElementById('search').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       const search = q('#search').value;
-      console.log(search);
       renderSearchItems(search);
-    }
+
+    //   // Add the search term to the start of the array
+    //   recentSearches.unshift(search);
+
+    //   // If the array length exceeds 5, remove the last item
+    //   if (recentSearches.length > 5) {
+    //     recentSearches.pop();
+    //   }
+
+    //   // Update the datalist
+    //   const datalist = document.getElementById('recent-searches');
+    //   datalist.innerHTML = recentSearches.map(term => `<option value="${term}">`).join('');
+   }
 });
 
 

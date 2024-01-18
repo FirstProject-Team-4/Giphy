@@ -15,7 +15,10 @@
       <a href="#" class="nav-link" data-page="home">Home</a> | 
       <a href="#" class="nav-link" data-page="trending">Trending</a> |
       <a href="#" class="nav-link" data-page="favorites">Favorites</a>
-      <input id="search" type="text" placeholder="Search all the GIFs.">
+      <a href="#" class="nav-link" data-page="">Upload</a>
+      <input id="search" type="text" placeholder="Search all the GIFs." list="recent-searches">
+      <datalist id="recent-searches">
+      </datalist>
       <button class='search-button' id="img-loop"><img src="./images/loop.png" class="search-button" id="img"></button>
       <a href="#" class="nav-link" data-page="about">About</a>
     </nav>
@@ -24,6 +27,7 @@
       
       <!-- end placeholders -->
     </div>
+    <input type="file" id="fileInput">
     <footer>Footer</footer>
   </div>
 
