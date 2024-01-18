@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // show category events
-    if (event.target.classList.contains(/* your button class here */)) {
-      renderCategory(+event.target.getAttribute(/* your correct data attribute here */));
+    if (event.target.classList.contains('idGif')) {
+      renderCategory(+event.target.getAttribute('href'));
     }
 
     // show movie events
