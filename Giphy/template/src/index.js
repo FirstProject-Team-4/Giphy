@@ -3,6 +3,7 @@ import { toggleFavoriteStatus } from './events/favorites-events.js';
 import { q } from './events/helpers.js';
 import { loadPage, } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
+import { renderGifDetails } from './views/gif-details-view.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // show category events
     if (event.target.classList.contains('idGif')) {
-      renderCategory(+event.target.getAttribute('href'));
+      renderGifDetails(event.target.getAttribute('data'));
     }
 
     // show movie events

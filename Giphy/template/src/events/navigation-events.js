@@ -2,8 +2,9 @@ import { CONTAINER_SELECTOR, HOME, TRENDING } from '../common/constants.js';
 import { toHomeView } from '../views/home-view.js';
 // import { toMoviesFromCategoryView } from '../views/movie-views.js';
 import { q, setActiveNav } from './helpers.js';
-import { loadTrending } from '../requests/request-service.js';
+import { loadTrending ,loadGifyId} from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
+import { toGifDetailsView } from '../views/gif-details-view.js';
 
 
 // public API
@@ -47,7 +48,10 @@ const renderTrending = async() => {
   const trendingGifs=await loadTrending(30);
  q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trendingGifs);
 };
-
+const renderGifDetails =async () => {
+  const details=await loadGifyId();
+  q(CONTAINER_SELECTOR).innerHTML = toGifDetailsView(details);
+};
 // const renderFavorites = () => {
 //   // missing implementation
 // };
