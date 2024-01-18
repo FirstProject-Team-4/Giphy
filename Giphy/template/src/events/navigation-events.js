@@ -43,7 +43,7 @@ const renderHome = () => {
 };
 
 const renderTrending = async() => {
- const trendingGifs=loadTrending();
+  const trendingGifs=await loadTrending();
  q(CONTAINER_SELECTOR).innerHTML = toTrengingView(trendingGifs);
 };
 
