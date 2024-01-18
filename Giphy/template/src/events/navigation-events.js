@@ -6,6 +6,7 @@ import { toTrendingView } from '../views/trending-view.js';
 import { toGifDetailsView } from '../views/gif-details-view.js';
 import { FAVORITES } from '../common/constants.js';
 import { toFavoritesView } from '../views/favorites-view.js';
+import { toUploadView } from '../views/upload-view.js';
 
 
 // public API
