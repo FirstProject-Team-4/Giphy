@@ -1,4 +1,4 @@
-import { Trending_URL,search_URL } from '../common/constants.js';
+import { Trending_URL,search_URL,ID_URL } from '../common/constants.js';
 
 
 
@@ -9,6 +9,11 @@ export const loadTrending=async()=>{
 }
 export const loadSearch=async(searchTerm)=>{
     const response =await fetch(search_URL(searchTerm))
+    const result=await response.json();
+    return result.data;
+}
+export const loadGifbyId=async(id)=>{
+    const response =await fetch(ID_URL(id))
     const result=await response.json();
     return result.data;
 }
