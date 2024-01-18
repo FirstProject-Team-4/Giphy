@@ -27,11 +27,7 @@ export const loadFavoriteGifs=async()=>{
     const result=await response.json();
     return result.data;
 }
-// export const loadCategory = (id = null) => {
-//   const category = getCategory(id);
 
-//   return category;
-// }
 
 // export const loadMovies = (categoryId = null) => {
 //   // missing implementation
