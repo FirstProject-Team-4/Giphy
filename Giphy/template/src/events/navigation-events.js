@@ -1,7 +1,9 @@
-import { CONTAINER_SELECTOR, HOME } from '../common/constants.js';
+import { CONTAINER_SELECTOR, HOME, TRENDING } from '../common/constants.js';
 import { toHomeView } from '../views/home-view.js';
-
+// import { toMoviesFromCategoryView } from '../views/movie-views.js';
 import { q, setActiveNav } from './helpers.js';
+import { loadTrending } from '../requests/request-service.js';
+import { toTrengingView } from '../views/trending-view.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -40,8 +42,9 @@ const renderHome = () => {
   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
-const renderTrending = () => {
-  // missing implementation
+const renderTrending = async() => {
+ const trendingGifs=loadTrending();
+ q(CONTAINER_SELECTOR).innerHTML = toTrengingView(trendingGifs);
 };
 
 // const renderFavorites = () => {
