@@ -11,7 +11,6 @@ export  function perform(formData) {
         //return response;
     } catch (error) {
         console.log('Error during Upload GIF!: ', error.message);
-
     }
     
 }

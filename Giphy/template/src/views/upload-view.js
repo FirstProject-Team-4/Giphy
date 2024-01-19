@@ -6,11 +6,17 @@ export const toUploadView = (uploadValue) => {
       <div id="formModal">
 
       <div id='form'>
-      <input type="text" id="input1" placeholder="Input 1">
-      <input type="text" id="input2" placeholder="Input 2">
-      <input type="file" id="fileInput" value="${uploadValue || ''}">
-      <button class='uploadGif' type="submit">Submit</button>
       <button class='closeButton'>X</button>
+      <h2>Upload Gif</h2>
+      <input type="text" id="input1" placeholder="user">
+      <p> </p>
+      <input type="text" id="input2" placeholder="gif title">
+      
+      <p> </p>
+      <input type="file" id="fileInput" value="${uploadValue || ''}">
+      <p> </p>
+      <button class='uploadGif' type="submit">Submit</button>
+      <p> </p>
       </div>
       `;
     };
