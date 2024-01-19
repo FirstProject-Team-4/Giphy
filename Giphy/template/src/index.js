@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const user = q('#input1').value; // input 1 -user
       const gifTitle = q('#input2').value; // input 2 -gif title
       const file = fileInput.files[0]; // input 3 -file
-      console.log(file);
       if (!user) {
         q('#user-error').innerHTML = 'User is required';
         if (!gifTitle) {
@@ -59,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        console.log(perform(formData));
+        perform(formData, user, gifTitle);
       }
     }
 
