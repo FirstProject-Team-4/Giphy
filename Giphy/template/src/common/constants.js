@@ -51,3 +51,5 @@ export const ID_URL=(id)=>`https://api.giphy.com/v1/gifs/${id}?api_key=${APY_KEY
  */
 export const search_URL=(searchTerm,limit=defaultLimit,offset=defaultOffset)=>`https://api.giphy.com/v1/gifs/search?api_key=
 ${APY_KEY}&q=${searchTerm}&limit=${limit}&offset=${offset}&rating=g&lang=en&bundle=messaging_non_clips`
+
+export const POST_URL=`https://upload.giphy.com/v1/gifs?api_key=${APY_KEY}`

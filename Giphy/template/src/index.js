@@ -1,10 +1,11 @@
-import { HOME } from './common/constants.js';
+import { APY_KEY, HOME } from './common/constants.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
 import { q } from './events/helpers.js';
 import { loadPage, } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderGifDetails } from './events/navigation-events.js';
-import { renderUpload } from './events/navigation-events.js';
+import { perform } from './events/upload-events.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -24,11 +25,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (event.target.classList.contains('uploadGif')) {
-      const unpload = q('#fileInput');
-      const unploadValue=unpload.value
-      // console.log(unpload)
-      renderUpload(unploadValue);
-    }
+      const fileInput = q('#fileInput');
+      const file = fileInput.files[0];
+
+      if (file) {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        console.log(perform(formData));
+      } else {
+        console.error('Please select a file to upload.');
+      }
+    } 
+    // if (event.target.classList.contains('uploadGif')) {
+
+
+    // // const unploadFN=async()=>{
+    // //   const unpload = q('#fileInput').files[0];
+    // //   const formData = new FormData();
+    // //   formData.append('file', unpload);
+    // //   const response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${APY_KEY}`, {
+    // //     method: 'POST',
+    // //     body: formData,
+    //   });
+    //   console.log(response.json());
+    //   return response;
+    // }
+    //   unploadFN();
+    // }
 
     // toggle favorite event
     if (event.target.classList.contains('favorite')) {
