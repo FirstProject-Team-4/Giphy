@@ -47,24 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Please select a file to upload.');
       }
     } 
-    // if (event.target.classList.contains('uploadGif')) {
-
-
-    // // const unploadFN=async()=>{
-    // //   const unpload = q('#fileInput').files[0];
-    // //   const formData = new FormData();
-    // //   formData.append('file', unpload);
-    // //   const response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${APY_KEY}`, {
-    // //     method: 'POST',
-    // //     body: formData,
-    //   });
-    //   console.log(response.json());
-    //   return response;
-    // }
-    //   unploadFN();
-    // }
-
-    // toggle favorite event
+    
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
     }
@@ -82,23 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const search = q('#search').value;
       renderSearchItems(search);
 
-    //   // Add the search term to the start of the array
-    //   recentSearches.unshift(search);
-
-    //   // If the array length exceeds 5, remove the last item
-    //   if (recentSearches.length > 5) {
-    //     recentSearches.pop();
-    //   }
-
-    //   // Update the datalist
-    //   const datalist = document.getElementById('recent-searches');
-    //   datalist.innerHTML = recentSearches.map(term => `<option value="${term}">`).join('');
+  
    }
 });
 
 
   loadPage(HOME);
   
-
 
 });
