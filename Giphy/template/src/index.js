@@ -31,46 +31,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //openFormButton
     if (event.target.classList.contains('openFormButton')) {
+      q('#user-error').innerHTML = '';
+      q('#title-error').innerHTML = '';
+      q('#file-error').innerHTML = '';
       document.getElementById('formModal').style.display = 'block';
     }
 
     if (event.target.classList.contains('uploadGif')) {
+    
       const fileInput = q('#fileInput');
-      const file = fileInput.files[0];
-
+      const user = q('#input1').value; // input 1 -user
+      const gifTitle = q('#input2').value; // input 2 -gif title
+      const file = fileInput.files[0]; // input 3 -file
+      console.log(file);
+      if (!user) {
+        q('#user-error').innerHTML = 'User is required';
+        if (!gifTitle) {
+          q('#title-error').innerHTML = 'Gif title is required';
+          if (file.type !== 'image/gif') {
+            q('#file-error').innerHTML = 'The uploaded file is not a gif';
+          }
+        }
+        return;
+      }
       if (file) {
+        
         const formData = new FormData();
         formData.append('file', file);
 
         console.log(perform(formData));
-      } else {
-        console.error('Please select a file to upload.');
       }
-    } 
-    
+    }
+
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
     }
-    if(event.target.classList.contains('search-button')){
+    if (event.target.classList.contains('search-button')) {
 
-      const search =q('#search').value
+      const search = q('#search').value
       console.log(search);
       renderSearchItems(search);
     }
 
-   });
-   //let recentSearches = [];
-   document.getElementById('search').addEventListener('keypress', function (e) {
+  });
+  //let recentSearches = [];
+  document.getElementById('search').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       const search = q('#search').value;
+      if (!search) {
+        return;
+      }
       renderSearchItems(search);
 
-  
-   }
-});
+
+    }
+  });
 
 
   loadPage(HOME);
-  
+
 
 });
