@@ -16,4 +16,4 @@ export const deleteUpload = (id) => {
   localStorage.setItem('myUploads', JSON.stringify(uploadsList));
 };
 
-export const getFavorites = () => [...uploadsList];
+export const getMyUploads = () => [...uploadsList];
