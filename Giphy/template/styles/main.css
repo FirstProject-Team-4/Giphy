@@ -1,6 +1,7 @@
 /* Template styling */
 
-html, body {
+html,
+body {
   margin: 0;
 }
 
@@ -15,7 +16,7 @@ div#app {
   margin: 0 auto;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto auto 1fr auto;
-  grid-template-areas: 
+  grid-template-areas:
     'header header header'
     'menu menu menu'
     'container container container'
@@ -95,48 +96,68 @@ span.favorite.active {
 }
 
 span.favorite:hover {
-  color:rgb(187, 135, 255)
+  color: rgb(187, 135, 255)
 }
 
 /* End template styling */
-#img{
+#img {
   width: 20px;
 }
-#img-loop{
+
+#img-loop {
   /* background-color:rgb(102, 102, 186) */
-  background-image: linear-gradient(144deg,#e7a564, #fb83ef 50%,#dc77e6);
+  background-image: linear-gradient(144deg, #e7a564, #fb83ef 50%, #dc77e6);
 }
 
-.nav-link{
-  
-    background-color: rgb(5, 6, 45);
-    padding: 16px 24px;
-    border-radius: 6px;
-    width: 100%;
-    height: 100%;
-    transition: 300ms;
-  
-      align-items: center;
-      background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-      border: 0;
-      border-radius: 8px;
-      box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-      box-sizing: border-box;
-      color: #FFFFFF;
-      display: flex;
-      font-family: Phantomsans, sans-serif;
-      font-size: 20px;
-      justify-content: center;
-      line-height: 1em;
-      max-width: 100%;
-      min-width: 140px;
-      padding: 3px;
-      text-decoration: none;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      white-space: nowrap;
-      cursor: pointer;
-  }
+.nav-link {
+
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+  align-items: center;
+  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#formModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#form {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
 
 /* Add your styles below */
