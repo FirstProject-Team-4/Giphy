@@ -8,7 +8,7 @@ import { FAVORITES } from '../common/constants.js';
 import { toFavoritesView } from '../views/favorites-view.js';
 import { toUploadView } from '../views/upload-view.js';
 import { toAboutView } from '../views/about-view.js';
-
+import { getMyUploads } from '../data/my-uploads.js';
 // public API
 export const loadPage = (page = '') => {
 
@@ -42,23 +42,13 @@ export const loadPage = (page = '') => {
 
 };
 
-// export const renderMovieDetails = (id = null) => {
-//   // missing implementation
-// };
-
-// export const renderCategory = (categoryId = null) => {
-//   // missing partial implementation
-
-//   q(CONTAINER_SELECTOR).innerHTML = toMoviesFromCategoryView(category, movies);
-// };
-
-// // private functions
 
 const renderHome = () => {
   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 export const renderUpload = (uploadValue) => {
-  q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue);
+ const listOfUploads=getMyUploads()
+  q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue,listOfUploads);
 };
 
 const renderTrending = async () => {
