@@ -9,11 +9,11 @@ export const toUploadView = (uploadValue) => {
       <input type="text" id="input1" placeholder="Input 1">
       <input type="text" id="input2" placeholder="Input 2">
       <input type="file" id="fileInput" value="${uploadValue || ''}">
-      <button class="uploadGif" >Upload GIF</button>
-    <button type="submit">Submit</button>
-    <button class='closeButton'>X</button>
-</div>
-    `;
-};
+      <button class='uploadGif' type="submit">Submit</button>
+      <button class='closeButton'>X</button>
+      </div>
+      `;
+    };
+    // <button class="uploadGif" >Upload GIF</button>
 
 

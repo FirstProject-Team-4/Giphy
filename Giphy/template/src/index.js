@@ -1,4 +1,4 @@
-import { APY_KEY, HOME } from './common/constants.js';
+import { HOME } from './common/constants.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
 import { q } from './events/helpers.js';
 import { loadPage, } from './events/navigation-events.js';
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('openFormButton')) {
       document.getElementById('formModal').style.display = 'block';
     }
+
     if (event.target.classList.contains('uploadGif')) {
       const fileInput = q('#fileInput');
       const file = fileInput.files[0];
