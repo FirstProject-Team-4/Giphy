@@ -13,7 +13,6 @@ export const toUploadView = (uploadValue) => {
     <button type="submit">Submit</button>
     <button class='closeButton'>X</button>
 </div>
-
     `;
 };
 
