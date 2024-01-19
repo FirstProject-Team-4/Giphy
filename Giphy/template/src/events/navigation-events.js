@@ -1,7 +1,7 @@
 import { CONTAINER_SELECTOR, HOME, TRENDING, UPLOAD,ABOUT } from '../common/constants.js';
 import { toHomeView } from '../views/home-view.js';
 import { q, setActiveNav } from './helpers.js';
-import { loadTrending, loadGifId, loadFavoriteGifs } from '../requests/request-service.js';
+import { loadTrending, loadGifId, loadFavoriteGifs,loadMyUpload } from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toGifDetailsView } from '../views/gif-details-view.js';
 import { FAVORITES } from '../common/constants.js';
@@ -46,9 +46,10 @@ export const loadPage = (page = '') => {
 const renderHome = () => {
   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
-export const renderUpload = (uploadValue) => {
+export const renderUpload =async (uploadValue) => {
  const listOfUploads=getMyUploads()
-  q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue,listOfUploads);
+ const uploadGifs=await loadMyUpload(listOfUploads);
+  q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue,uploadGifs);
 };
 
 const renderTrending = async () => {

@@ -6,7 +6,7 @@ export  function perform(formData,user,gifTitle){
             method: 'POST',
             body: formData
         }).then(response => response.json()).then(data => addUpload(data, user, gifTitle))
-        //return response;
+        return response;
     } catch (error) {
         console.log('Error during Upload GIF!: ', error.message);
     }
