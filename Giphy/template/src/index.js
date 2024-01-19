@@ -24,9 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (event.target.classList.contains('uploadGif')) {
-      const unpload = q('#fileInput').value;
-      console.log(unpload)
-      renderUpload(unpload);
+      const unpload = q('#fileInput');
+      const unploadValue=unpload.value
+      // console.log(unpload)
+      renderUpload(unploadValue);
     }
 
     // toggle favorite event

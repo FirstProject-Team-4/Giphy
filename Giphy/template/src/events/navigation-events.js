@@ -1,4 +1,4 @@
-import { CONTAINER_SELECTOR, HOME, TRENDING,UPLOAD } from '../common/constants.js';
+import { CONTAINER_SELECTOR, HOME, TRENDING, UPLOAD,ABOUT } from '../common/constants.js';
 import { toHomeView } from '../views/home-view.js';
 import { q, setActiveNav } from './helpers.js';
 import { loadTrending, loadGifId, loadFavoriteGifs } from '../requests/request-service.js';
@@ -7,7 +7,7 @@ import { toGifDetailsView } from '../views/gif-details-view.js';
 import { FAVORITES } from '../common/constants.js';
 import { toFavoritesView } from '../views/favorites-view.js';
 import { toUploadView } from '../views/upload-view.js';
-
+import { toAboutView } from '../views/about-view.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -31,6 +31,11 @@ export const loadPage = (page = '') => {
       setActiveNav(FAVORITES);
       return renderFavorites();
 
+    case ABOUT:
+      setActiveNav(ABOUT);
+      return renderAbout();
+
+
     /* if the app supports error logging, use default to log mapping errors */
     default: return null;
   }
@@ -52,8 +57,8 @@ export const loadPage = (page = '') => {
 const renderHome = () => {
   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
-export const renderUpload = () => {
-  q(CONTAINER_SELECTOR).innerHTML = toUploadView();
+export const renderUpload = (uploadValue) => {
+  q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue);
 };
 
 const renderTrending = async () => {
@@ -71,6 +76,6 @@ const renderFavorites = async () => {
   q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favorites);
 };
 
-// const renderAbout = () => {
-//   // missing implementation
-// };
+const renderAbout = () => {
+  q(CONTAINER_SELECTOR).innerHTML = toAboutView();
+};
