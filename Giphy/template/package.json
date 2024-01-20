@@ -4,7 +4,8 @@
   },
   "dependencies": {
     "compass-mixins": "^0.12.12",
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "masonry-layout": "^4.2.2"
   },
   "devDependencies": {
     "eslint-config-google": "^0.14.0"

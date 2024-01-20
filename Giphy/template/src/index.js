@@ -67,58 +67,58 @@ document.addEventListener('DOMContentLoaded', () => {
         if (file.type !== 'image/gif') {
           q('#file-error').innerHTML = 'The uploaded file is not a gif';
         }
-      }else {
+      } else {
         q('#file-error').innerHTML = 'File is required';
       }
 
       if (user && gifTitle && file.type === 'image/gif') {
         const formData = new FormData();
         formData.append('file', file);
-      
+
         perform(formData, user, gifTitle);
       }
-   
+
     }
 
     //delete-button
     if (event.target.classList.contains('delete-button')) {
       console.log(event.target.getAttribute('delete'))
       deleteUploadHandler(event.target.getAttribute('delete'));
-    
+
     }
 
 
     if (event.target.classList.contains('favorite')) {
-  toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
-}
-//search-button
-if (event.target.classList.contains('search-button')) {
-  const search = q('#search').value;
-    if (!search) {
-      return;
+      toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
     }
+    //search-button
+    if (event.target.classList.contains('search-button')) {
+      const search = q('#search').value;
+      if (!search) {
+        return;
+      }
 
-  renderSearchItems(search);
-}
+      renderSearchItems(search);
+    }
 
   });
 
-//let recentSearches = [];
-document.getElementById('search').addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    const search = q('#search').value;
-    if (!search) {
-      return;
+  //let recentSearches = [];
+  document.getElementById('search').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      const search = q('#search').value;
+      if (!search) {
+        return;
+      }
+
+      renderSearchItems(search);
+
+
     }
-
-    renderSearchItems(search);
-
-
-  }
-});
+  });
 
 
-loadPage(HOME);
+  loadPage(HOME);
 
 
 });
