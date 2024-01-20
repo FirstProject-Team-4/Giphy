@@ -59,6 +59,7 @@ const renderTrending = async () => {
 export const renderGifDetails = async (id) => {
   const details = await loadGifId(id);
   q(CONTAINER_SELECTOR).innerHTML = toGifDetailsView(details);
+  console.log(details)
 };
 
 const renderFavorites = async () => {
