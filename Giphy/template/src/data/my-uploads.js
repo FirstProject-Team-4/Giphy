@@ -1,20 +1,20 @@
+import { loadingScreenOff } from "../events/upload-events.js";
 let uploadsList = JSON.parse(localStorage.getItem('myUploads')) || [];
 
-export const addUpload = (id, user, gifTitle) => {
-  const object = { 
-    id,
-    user,
-    gifTitle
-  };
+export const addUpload = (dataObject, user, gifTitle) => {
+ 
+  dataObject.myUser=user;
+  dataObject.myTitle=gifTitle;
+console.log(dataObject)
+  uploadsList.push(dataObject);
 
-  uploadsList.push(object);
-  console.log(object);
   localStorage.setItem('myUploads', JSON.stringify(uploadsList));
+loadingScreenOff();
 };
 
 export const deleteUpload = (id) => {
 
-  uploadsList = uploadsList.filter(upload => upload.id.data.id !== id);
+  uploadsList = uploadsList.filter(upload => upload.id !== id);
   localStorage.setItem('myUploads', JSON.stringify(uploadsList));
 };
 

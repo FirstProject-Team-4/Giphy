@@ -48,8 +48,8 @@ const renderHome = () => {
 };
 export const renderUpload =async (uploadValue) => {
  const listOfUploads=getMyUploads()
- const uploadGifs=await loadMyUpload(listOfUploads);
-  q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue,uploadGifs);
+ //const uploadGifs=await loadMyUpload(listOfUploads);
+  q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue,listOfUploads);
 };
 
 const renderTrending = async () => {
@@ -59,12 +59,12 @@ const renderTrending = async () => {
 export const renderGifDetails = async (id) => {
   const details = await loadGifId(id);
   q(CONTAINER_SELECTOR).innerHTML = toGifDetailsView(details);
-  console.log(details)
+
 };
 
 const renderFavorites = async () => {
   const favorites = await loadFavoriteGifs();
-  console.log(favorites);
+
   q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favorites);
 };
 

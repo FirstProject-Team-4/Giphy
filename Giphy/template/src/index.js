@@ -4,7 +4,7 @@ import { q } from './events/helpers.js';
 import { loadPage, } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderGifDetails } from './events/navigation-events.js';
-import { perform } from './events/upload-events.js';
+import { filePost } from './events/upload-events.js';
 import { CONTAINER_SELECTOR } from './common/constants.js';
 import { deleteUploadHandler } from './events/upload-events.js';
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        perform(formData, user, gifTitle);
+        filePost(formData, user, gifTitle);
       }
 
     }
