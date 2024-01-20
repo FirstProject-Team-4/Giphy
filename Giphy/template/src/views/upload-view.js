@@ -19,10 +19,11 @@ export const  toUploadView =(uploadValue, uploadList) => {
       <p id='title-error'> </p>
       <input type="file" id="fileInput" value="${uploadValue || ''}">
       <p id='file-error'> </p>
-      <button class='uploadGif' type="submit">Submit</button>
+      <button class='submit-button' type="submit">Submit</button>
       <p> </p>
       </div>
       </div>
+      <div class="loader"></div>
        <div>
       <li>
       ${checkType(uploadList)}

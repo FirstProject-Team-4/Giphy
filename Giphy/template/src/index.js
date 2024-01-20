@@ -5,11 +5,11 @@ import { loadPage, } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderGifDetails } from './events/navigation-events.js';
 import { perform } from './events/upload-events.js';
-import { CONTAINER_SELECTOR} from './common/constants.js';
+import { CONTAINER_SELECTOR } from './common/constants.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-let memoryContainer;
+  let memoryContainer;
   // add global listener
   document.addEventListener('click', event => {
 
@@ -23,10 +23,10 @@ let memoryContainer;
       const gifUrl = event.target.getAttribute('data-gif-url');
       memoryContainer = q(CONTAINER_SELECTOR).innerHTML;
       q(CONTAINER_SELECTOR).innerHTML = `<img src="${gifUrl}" alt="gif" class="fullscreen-gif">`;
-      
+
     }
     //disable full screen
-    if(event.target.classList.contains('fullscreen-gif')){
+    if (event.target.classList.contains('fullscreen-gif')) {
       event.target.classList.remove('fullscreen-gif');
       q(CONTAINER_SELECTOR).innerHTML = memoryContainer;
     }
@@ -49,7 +49,8 @@ let memoryContainer;
       document.getElementById('formModal').style.display = 'block';
     }
 
-    if (event.target.classList.contains('uploadGif')) {
+    //submit-button
+    if (event.target.classList.contains('submit-button')) {
 
       const fileInput = q('#fileInput');
       const user = q('#input1').value; // input 1 -user
@@ -57,56 +58,57 @@ let memoryContainer;
       const file = fileInput.files[0]; // input 3 -file
       if (!user) {
         q('#user-error').innerHTML = 'User is required';
-        if (!gifTitle) {
-          q('#title-error').innerHTML = 'Gif title is required';
-          if (file) {
-
-            if (file.type !== 'image/gif') {
-              q('#file-error').innerHTML = 'The uploaded file is not a gif';
-            }
-          }
-          else {
-            q('#file-error').innerHTML = 'File is required';
-          }
-
-        }
-        return;
       }
-      if (file) {
 
+      if (!gifTitle) {
+        q('#title-error').innerHTML = 'Gif title is required';
+      }
+
+      if (file) {
+        if (file.type !== 'image/gif') {
+          q('#file-error').innerHTML = 'The uploaded file is not a gif';
+        }
+      }else {
+        q('#file-error').innerHTML = 'File is required';
+      }
+
+      if (user && gifTitle && file.type === 'image/gif') {
         const formData = new FormData();
         formData.append('file', file);
-
+      
         perform(formData, user, gifTitle);
       }
+   
     }
+
+    
 
     if (event.target.classList.contains('favorite')) {
-      toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
-    }
-    if (event.target.classList.contains('search-button')) {
+  toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
+}
+if (event.target.classList.contains('search-button')) {
 
-      const search = q('#search').value
-      console.log(search);
-      renderSearchItems(search);
-    }
+  const search = q('#search').value
+  console.log(search);
+  renderSearchItems(search);
+}
 
   });
-  //let recentSearches = [];
-  document.getElementById('search').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      const search = q('#search').value;
-      if (!search) {
-        return;
-      }
-      renderSearchItems(search);
-
-
+//let recentSearches = [];
+document.getElementById('search').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    const search = q('#search').value;
+    if (!search) {
+      return;
     }
-  });
+    renderSearchItems(search);
 
 
-  loadPage(HOME);
+  }
+});
+
+
+loadPage(HOME);
 
 
 });
