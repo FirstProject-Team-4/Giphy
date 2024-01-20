@@ -41,8 +41,12 @@ export const gifUpload =(gif) =>
 `
 <li class="gif-item">
   <div class="gif-content">
+
     <img src="${gif.images.fixed_width.url}" alt="${gif.title}" class='idGif' data='${gif.id}'>
-    <span class="favorite-status"><data-gif-id="${gif.id}">${renderFavoriteStatus(gif.id)}</span>
+    <div class="controls">
+      <span class="favorite-status"><data-gif-id="${gif.id}">${renderFavoriteStatus(gif.id)}</span>
+      <span class="fullscreen-button" data-gif-url="${gif.images.fixed_width.url}" id='fullscreen'>🔍</span>
+    </div>
   </div>
 </li>
 `;

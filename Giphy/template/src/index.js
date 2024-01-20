@@ -5,10 +5,11 @@ import { loadPage, } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderGifDetails } from './events/navigation-events.js';
 import { perform } from './events/upload-events.js';
+import { CONTAINER_SELECTOR} from './common/constants.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
+let memoryContainer;
   // add global listener
   document.addEventListener('click', event => {
 
@@ -17,9 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
       loadPage(event.target.getAttribute('data-page'));
     }
-
+    // full screen events
+    if (event.target.matches('.fullscreen-button')) {
+      const gifUrl = event.target.getAttribute('data-gif-url');
+      memoryContainer = q(CONTAINER_SELECTOR).innerHTML;
+      q(CONTAINER_SELECTOR).innerHTML = `<img src="${gifUrl}" alt="gif" class="fullscreen-gif">`;
+      
+    }
+    //disable full screen
+    if(event.target.classList.contains('fullscreen-gif')){
+      event.target.classList.remove('fullscreen-gif');
+      q(CONTAINER_SELECTOR).innerHTML = memoryContainer;
+    }
     // show  events
-    if (event.target.classList.contains('idGif')) {;
+    if (event.target.classList.contains('idGif')) {
+      ;
       renderGifDetails(event.target.getAttribute('data'));
     }
 
@@ -37,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (event.target.classList.contains('uploadGif')) {
-    
+
       const fileInput = q('#fileInput');
       const user = q('#input1').value; // input 1 -user
       const gifTitle = q('#input2').value; // input 2 -gif title
@@ -47,20 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!gifTitle) {
           q('#title-error').innerHTML = 'Gif title is required';
           if (file) {
-            
+
             if (file.type !== 'image/gif') {
               q('#file-error').innerHTML = 'The uploaded file is not a gif';
             }
           }
-          else{
+          else {
             q('#file-error').innerHTML = 'File is required';
           }
-          
+
         }
         return;
       }
       if (file) {
-        
+
         const formData = new FormData();
         formData.append('file', file);
 

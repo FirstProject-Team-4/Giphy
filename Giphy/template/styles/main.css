@@ -168,8 +168,12 @@ span.favorite:hover {
   background-color: rgb(202, 74, 74);
   margin-left: 90%;
 }
+.fullscreen-gif { 
+ height: 80%;
+ width: 80%;
+}
 /* Start onpoint start */
-.gif-item {
+/* .gif-item {
   position: relative;
 }
 
@@ -183,12 +187,22 @@ span.favorite:hover {
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-  color: white;
+  /* color: white;
   display: none;
-}
+} */
 
-.gif-item:hover .favorite-status {
+/* .gif-item:hover .favorite-status {
   display: block;
 }
+.controls {
+  display: flex;
+  justify-content: space-between; /* space out the controls */
+/* }
+
+.favorite-status, .fullscreen-button {
+  padding: 5px; /* add some padding around the controls */
+  /* cursor: pointer; /* change the cursor when hovering over the controls */
+
 /* End onpoint start */
 /* Add your styles below */
+
