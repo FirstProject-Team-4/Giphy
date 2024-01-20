@@ -39,7 +39,9 @@ const checkType = (element) => {
   return`<h2>No uploads</h2>`
 };
 export const gifUpload =(gif) => 
-`
+{
+  console.log(gif);
+return`
 <li class="gif-item">
   <div class="gif-content">
 
@@ -51,5 +53,5 @@ export const gifUpload =(gif) =>
     </div>
   </div>
 </li>
-`;
+`};
 
