@@ -91,14 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('favorite')) {
   toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
 }
+//search-button
 if (event.target.classList.contains('search-button')) {
+  const search = q('#search').value;
+    if (!search) {
+      return;
+    }
 
-  const search = q('#search').value
-  console.log(search);
   renderSearchItems(search);
 }
 
   });
+
 //let recentSearches = [];
 document.getElementById('search').addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
@@ -106,6 +110,7 @@ document.getElementById('search').addEventListener('keypress', function (e) {
     if (!search) {
       return;
     }
+
     renderSearchItems(search);
 
 
