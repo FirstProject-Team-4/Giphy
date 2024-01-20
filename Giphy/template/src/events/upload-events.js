@@ -1,6 +1,7 @@
 import { POST_URL } from "../common/constants.js";
 import { addUpload } from "../data/my-uploads.js";
 import { renderUpload } from "./navigation-events.js";
+import { deleteUpload } from "../data/my-uploads.js";
 
 export const loadingScreen = async () => {
     document.getElementById('formModal').style.display = 'none';
@@ -24,4 +25,9 @@ export function perform(formData, user, gifTitle) {
         console.log('Error during Upload GIF!: ', error.message);
     }
 
+}
+
+export function deleteUploadHandler(id) {
+    deleteUpload(id);
+    renderUpload();
 }

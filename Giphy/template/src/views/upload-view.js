@@ -47,6 +47,7 @@ export const gifUpload =(gif) =>
     <div class="controls">
       <span class="favorite-status"><data-gif-id="${gif.id}">${renderFavoriteStatus(gif.id)}</span>
       <span class="fullscreen-button" data-gif-url="${gif.images.fixed_width.url}" id='fullscreen'>🔍</span>
+      <span class='delete-button' delete='${gif.id}'>X</span>
     </div>
   </div>
 </li>

@@ -13,7 +13,9 @@ export const addUpload = (id, user, gifTitle) => {
 };
 
 export const deleteUpload = (id) => {
-  uploadsList = uploadsList.filter(upload => upload.id !== id);
+  console.log(id);
+  console.log(uploadsList)
+  uploadsList = uploadsList.filter(upload => upload.id.data.id !== id);
   localStorage.setItem('myUploads', JSON.stringify(uploadsList));
 };
 

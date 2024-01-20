@@ -6,7 +6,7 @@ import { renderSearchItems } from './events/search-events.js';
 import { renderGifDetails } from './events/navigation-events.js';
 import { perform } from './events/upload-events.js';
 import { CONTAINER_SELECTOR } from './common/constants.js';
-
+import { deleteUploadHandler } from './events/upload-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let memoryContainer;
@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // show  events
     if (event.target.classList.contains('idGif')) {
-      ;
       renderGifDetails(event.target.getAttribute('data'));
     }
 
@@ -81,7 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
    
     }
 
+    //delete-button
+    if (event.target.classList.contains('delete-button')) {
+      console.log(event.target.getAttribute('delete'))
+      deleteUploadHandler(event.target.getAttribute('delete'));
     
+    }
+
 
     if (event.target.classList.contains('favorite')) {
   toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
