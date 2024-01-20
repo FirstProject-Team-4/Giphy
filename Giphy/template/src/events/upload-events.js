@@ -1,7 +1,20 @@
 import { POST_URL } from "../common/constants.js";
 import { addUpload } from "../data/my-uploads.js";
-export  function perform(formData,user,gifTitle){
+import { renderUpload } from "./navigation-events.js";
+
+export const loadingScreen = async () => {
+    document.getElementById('formModal').style.display = 'none';
+    document.getElementById('loader').style.display = 'block';
+
+    setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        renderUpload();
+      }, 8000);
+}
+
+export function perform(formData, user, gifTitle) {
     try {
+        loadingScreen()
         const response = fetch(`${POST_URL}`, {
             method: 'POST',
             body: formData
@@ -11,5 +24,4 @@ export  function perform(formData,user,gifTitle){
         console.log('Error during Upload GIF!: ', error.message);
     }
 
-    
 }

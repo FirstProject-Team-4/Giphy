@@ -23,7 +23,7 @@ export const  toUploadView =(uploadValue, uploadList) => {
       <p> </p>
       </div>
       </div>
-      <div class="loader"></div>
+      <div id="loader"></div>
        <div>
       <li>
       ${checkType(uploadList)}
