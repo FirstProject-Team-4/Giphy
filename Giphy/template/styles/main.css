@@ -168,5 +168,27 @@ span.favorite:hover {
   background-color: rgb(202, 74, 74);
   margin-left: 90%;
 }
+/* Start onpoint start */
+.gif-item {
+  position: relative;
+}
 
+.gif-content {
+  position: relative;
+}
+
+.favorite-status {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  color: white;
+  display: none;
+}
+
+.gif-item:hover .favorite-status {
+  display: block;
+}
+/* End onpoint start */
 /* Add your styles below */
