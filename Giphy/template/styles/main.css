@@ -172,9 +172,10 @@ span.favorite:hover {
 .fullscreen-gif { 
  height: 80%;
  width: 80%;
+ 
 }
 /* loading start */
-.loader {
+#loader {
   display: none;
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
