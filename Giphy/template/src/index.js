@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // show  events
-    if (event.target.classList.contains('idGif')) {
-      console.log(event.target.getAttribute('data'));
+    if (event.target.classList.contains('idGif')) {;
       renderGifDetails(event.target.getAttribute('data'));
     }
 
@@ -47,9 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
         q('#user-error').innerHTML = 'User is required';
         if (!gifTitle) {
           q('#title-error').innerHTML = 'Gif title is required';
-          if (file.type !== 'image/gif') {
-            q('#file-error').innerHTML = 'The uploaded file is not a gif';
+          if (file) {
+            
+            if (file.type !== 'image/gif') {
+              q('#file-error').innerHTML = 'The uploaded file is not a gif';
+            }
           }
+          else{
+            q('#file-error').innerHTML = 'File is required';
+          }
+          
         }
         return;
       }

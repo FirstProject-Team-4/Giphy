@@ -2,9 +2,10 @@ let uploadsList = JSON.parse(localStorage.getItem('myUploads')) || [];
 
 export const addUpload = (id, user, gifTitle) => {
   const object = { 
-    'id':id,
-    'user': user,
-    'gifTitle': gifTitle };
+    id,
+    user,
+    gifTitle
+  };
 
   uploadsList.push(object);
   console.log(object);
