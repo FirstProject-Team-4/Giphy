@@ -39,11 +39,11 @@ const checkType = (element) => {
 };
 export const gifUpload =(gif) => 
 `
-<li>
-  <img src="${gif.images.fixed_width.url}" alt="${gif.gifTitle}" class='idGif' data='${gif.id}'>
-  <p>${gif.user}</p>
-  <p>${gif.gifTitle}</p>
-  <span class="favorite-status"> <data-gif-id="${gif.id}">${renderFavoriteStatus(gif.id)}</span>
+<li class="gif-item">
+  <div class="gif-content">
+    <img src="${gif.images.fixed_width.url}" alt="${gif.title}" class='idGif' data='${gif.id}'>
+    <span class="favorite-status"><data-gif-id="${gif.id}">${renderFavoriteStatus(gif.id)}</span>
+  </div>
 </li>
 `;
 
