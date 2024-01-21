@@ -401,6 +401,71 @@ span.favorite:hover {
 
 /* end btn */
 
-/* .favorite-status, .fullscreen-button {
-  padding: 5px; /* add some padding around the controls */
-  /* cursor: pointer; change the cursor when hovering over the controls */
+/* start TRENDING */
+/* CSS for Flexbox layout */
+.gif-page {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  justify-content: flex-start;
+}
+
+.gif-box {
+  flex: 1 0 auto;
+  position: relative; /* relative positioning for absolute positioned child elements */
+}
+.gif-box img{
+  width: 200px;
+  height: 200px;
+}
+
+/* CSS for hiding and showing the buttons */
+.favorite-status, .fullscreen-button {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  background: rgba(0, 0, 0, 0.867);
+  padding: 4px 4px;
+  border-radius: 5px;
+}
+
+.favorite-status {
+  left: 0;
+}
+
+.fullscreen-button {
+  right: 0;
+}
+
+.gif-box:hover .favorite-status, 
+.gif-box:hover .fullscreen-button {
+  display: inline;
+}
+
+/* CSS for the image */
+/* .idGif {
+  max-width: 100%;
+  height: auto;
+} */
+
+/* CSS for the shadowed line */
+.gif-box:hover::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px; /* adjust as needed */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}
+/* end TRENDING */
+
+.idGif {
+
+  padding: 4px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  
+
+}
