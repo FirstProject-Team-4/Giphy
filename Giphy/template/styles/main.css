@@ -191,37 +191,46 @@ span.favorite:hover {
 }
 /* loading end */
 
-/* Start onpoint start */
-/* .gif-item {
-  position: relative;
-}
-
-.gif-content {
-  position: relative;
-}
-
-.favorite-status {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-  /* color: white;
-  display: none;
-} */
-
-/* .gif-item:hover .favorite-status {
-  display: block;
-}
-.controls {
+/*TrendingView*/
+.trending > div {
   display: flex;
-  justify-content: space-between; /* space out the controls */
-/* }
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 
-.favorite-status, .fullscreen-button {
-  padding: 5px; /* add some padding around the controls */
-  /* cursor: pointer; /* change the cursor when hovering over the controls */
+.trending > div > div {
+  position: relative;
+  flex: 1 0 auto;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-/* End onpoint start */
-/* Add your styles below */
+.trending > div > div img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.trending > div > div .favorite-status {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.trending > div > div .fullscreen-button {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.trending > div > div:hover .favorite-status,
+.trending > div > div:hover .fullscreen-button {
+  display: inline;
+}
+
+/*TrendingView  End*/
 
