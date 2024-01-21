@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if(activePage){
         activePage.classList.remove('activePage');
       }
+      q('#search').value='';
       renderSearchItems(search);
     }
 
@@ -112,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if(activePage){
         activePage.classList.remove('activePage');
       }
+      q('#search').value='';
       renderSearchItems(search);
     }
   });
