@@ -1,5 +1,6 @@
 /* Template styling */
 @import "compass";
+@import 'Masonry';
 
 html,
 body {
@@ -403,32 +404,3 @@ span.favorite:hover {
 /* .favorite-status, .fullscreen-button {
   padding: 5px; /* add some padding around the controls */
   /* cursor: pointer; change the cursor when hovering over the controls */
-
-.trending > div > div img {
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-}
-
-.trending > div > div .favorite-status {
-  display: none;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.trending > div > div .fullscreen-button {
-  display: none;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-
-.trending > div > div:hover .favorite-status,
-.trending > div > div:hover .fullscreen-button {
-  display: inline;
-}
-
-/*TrendingView  End*/
-
