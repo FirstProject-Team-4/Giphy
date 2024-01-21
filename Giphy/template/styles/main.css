@@ -110,7 +110,7 @@ span.favorite:hover {
   background-image: linear-gradient(144deg, #e7a564, #fb83ef 50%, #dc77e6);
 }
 
-.nav-link {
+ .nav-link {
   background-color: rgb(5, 6, 45);
   padding: 16px 24px;
   border-radius: 6px;
@@ -138,7 +138,8 @@ span.favorite:hover {
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
-}
+} 
+
 
 #formModal {
   display: none;
@@ -165,7 +166,7 @@ span.favorite:hover {
   font-size: 15px;
 }
 
-.closeButton{
+.closeButton {
   background-color: rgb(202, 74, 74);
   margin-left: 90%;
 }
@@ -178,7 +179,7 @@ span.favorite:hover {
 #loader {
   display: none;
   border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border-top: 16px solid #2f8ece; /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -191,20 +192,217 @@ span.favorite:hover {
 }
 /* loading end */
 
-/*TrendingView*/
-.trending > div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+/* start btn first style */
+/* .category-button {
+  text-decoration: none;
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #fff;
+  width: 9em;
+  height: 3em;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 300%;
+  border-radius: 30px;
+  z-index: 1;
+  margin: 50px;
+  color: black;
+  width: 250px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.trending > div > div {
-  position: relative;
-  flex: 1 0 auto;
-  margin: 0;
-  box-sizing: border-box;
+.category-button:hover {
+  animation: ani 8s linear infinite;
+  border: none;
 }
+
+@keyframes ani {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+.category-button:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+
+.category-button:hover::before {
+  filter: blur(20px);
+}
+
+.category-button:active {
+  background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+} */
+/* end btn */
+
+/* start btn second style */
+.category-button {
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(193, 141, 249, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: .25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 1em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+  text-shadow: 0 0 .5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  margin: 10px;
+ }
+ 
+ .category-button::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: .7;
+  transform: perspective(1.8em) rotateX(31deg) scale(1, .6);
+ }
+ 
+ .category-button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 2em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+ }
+ 
+ .category-button:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+         0 0 2.5em 2em var(--glow-spread-color),
+         inset 0 0 .5em .25em var(--glow-color);
+ }
+/* end second */
+
+/* Start onpoint start */
+.gif-item {
+  position: relative;
+}
+
+.gif-content {
+  position: relative;
+}
+
+.favorite-status .delete-button .fullscreen-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  color: white;
+  display: none;
+}
+
+.gif-item:hover .favorite-status .delete-button .fullscreen-button {
+  display: block;
+}
+
+.gif-item:hover .controls {
+  display: flex;
+}
+
+/* start btn first style */
+.openFormButton {
+  text-decoration: none;
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #fff;
+  width: 9em;
+  height: 3em;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 300%;
+  border-radius: 30px;
+  z-index: 1;
+  color: black;
+  width: 250px;
+  font-weight: bold;
+  /* position: 50%4; */
+}
+
+.openFormButton:hover {
+  animation: ani 8s linear infinite;
+  border: none;
+}
+
+@keyframes ani {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+.openFormButton:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+
+.openFormButton:hover::before {
+  filter: blur(20px);
+}
+
+.openFormButton:active {
+  background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+} 
+
+.delete-button {
+  background-color: rgb(202, 74, 74);
+
+}
+
+/* end btn */
+
+/* .favorite-status, .fullscreen-button {
+  padding: 5px; /* add some padding around the controls */
+  /* cursor: pointer; change the cursor when hovering over the controls */
 
 .trending > div > div img {
   height: 200px;

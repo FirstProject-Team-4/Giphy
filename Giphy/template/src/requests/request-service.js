@@ -45,3 +45,10 @@ export const loadFavoriteGifs=async()=>{
     return result.data;
 }
 
+// search category dog
+export const loadCategory=async(item)=>{
+    const response =await fetch(search_URL(item))
+    const result=await response.json();
+    return result.data;
+}
+
