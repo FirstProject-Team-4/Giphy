@@ -7,6 +7,7 @@ import { renderGifDetails } from './events/navigation-events.js';
 import { filePost } from './events/upload-events.js';
 import { CONTAINER_SELECTOR } from './common/constants.js';
 import { deleteUploadHandler } from './events/upload-events.js';
+import { renderCategory } from './events/home-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let memoryContainer;
@@ -15,9 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // nav events
     if (event.target.classList.contains('nav-link')) {
-
       loadPage(event.target.getAttribute('data-page'));
     }
+    //category
+    if (event.target.classList.contains('category-button')) {
+      renderCategory(event.target.getAttribute('type'));
+    }
+
     // full screen events
     if (event.target.matches('.fullscreen-button')) {
       const gifUrl = event.target.getAttribute('data-gif-url');
