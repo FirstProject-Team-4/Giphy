@@ -24,11 +24,10 @@ export const  toUploadView =(uploadValue, uploadList) => {
       </div>
       </div>
       <div id="loader"></div>
-       <div>
-      <li>
+      <div class='gif-page'>
       ${checkType(uploadList)}
-    </li>
     </div>
+
       `;
 };
 const checkType = (element) => {
@@ -41,16 +40,15 @@ const checkType = (element) => {
 export const gifUpload =(gif) => 
 {
 return`
-<li class="gif-item">
-  <div class="gif-content">
-
+<div class="gif-item">
+<div class='gif-box'>
     <img src="${gif.images.fixed_width.url}" alt="${gif.title}" class='idGif' data='${gif.id}'>
     <div class="controls">
       <span class="favorite-status"><data-gif-id="${gif.id}">${renderFavoriteStatus(gif.id)}</span>
-      <span class="fullscreen-button" data-gif-url="${gif.images.fixed_width.url}" id='fullscreen'>🔍</span>
-      <span class='delete-button' delete='${gif.id}'>X</span>
+      <span class="fullscreen-button" data-gif-url="${gif.images.fixed_width.url}" id='fullscreen'>⛶</span>
+      <span class='delete-button' delete='${gif.id}'>❌</span>
     </div>
   </div>
-</li>
+</div>
 `};
 

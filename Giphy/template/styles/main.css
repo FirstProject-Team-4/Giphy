@@ -420,26 +420,34 @@ span.favorite:hover {
 }
 
 /* CSS for hiding and showing the buttons */
-.favorite-status, .fullscreen-button {
+.favorite-status, .fullscreen-button, .delete-button{
   display: none;
   position: absolute;
   bottom: 0;
   color: white;
   background: rgba(0, 0, 0, 0.867);
-  padding: 4px 4px;
-  border-radius: 5px;
+  /* padding: 4px 4px; */
 }
 
 .favorite-status {
-  left: 0;
+  /* right: 40%; */
+  padding-right: 105px;
+  padding-left: 80px;
 }
 
 .fullscreen-button {
+  /* padding-left: 156px; */
+  right: 88%;
+  padding-left: 0px;
+}
+.delete-button {
+  
   right: 0;
 }
 
 .gif-box:hover .favorite-status, 
-.gif-box:hover .fullscreen-button {
+.gif-box:hover .fullscreen-button,
+.gif-box:hover .delete-button{
   display: inline;
 }
 
@@ -467,5 +475,4 @@ span.favorite:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   
-
 }
