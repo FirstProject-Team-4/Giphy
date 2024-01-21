@@ -40,7 +40,6 @@ const checkType = (element) => {
 };
 export const gifUpload =(gif) => 
 {
-  console.log(gif);
 return`
 <li class="gif-item">
   <div class="gif-content">

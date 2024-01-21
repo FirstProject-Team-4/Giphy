@@ -14,7 +14,7 @@ export const EMPTY_STAR = '☆';
 
 
 export const APY_KEY='RAHcDmbbXr75YCd1PKOMAnAMwOeBaGni';
-const defaultLimit = 25;
+const defaultLimit = 54;
 const defaultOffset = 0;
 /**
  * Returns the URL for trending GIFs.

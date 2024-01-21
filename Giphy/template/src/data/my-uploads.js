@@ -1,4 +1,4 @@
-import { loadingScreenOff } from "../events/upload-events.js";
+import { loadingScreenOff } from "../events/loading-screen-event.js";
 let uploadsList = JSON.parse(localStorage.getItem('myUploads')) || [];
 
 export const addUpload = (dataObject, user, gifTitle) => {

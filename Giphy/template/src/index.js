@@ -7,6 +7,7 @@ import { renderGifDetails } from './events/navigation-events.js';
 import { filePost } from './events/upload-events.js';
 import { CONTAINER_SELECTOR } from './common/constants.js';
 import { deleteUploadHandler } from './events/upload-events.js';
+import { validateForm } from '../validations/form-validation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let memoryContainer;
@@ -55,30 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const user = q('#input1').value; // input 1 -user
       const gifTitle = q('#input2').value; // input 2 -gif title
       const file = fileInput.files[0]; // input 3 -file
-      if (!user) {
-        q('#user-error').innerHTML = 'User is required';
-      }
-
-      if (!gifTitle) {
-        q('#title-error').innerHTML = 'Gif title is required';
-      }
-
-      if (file) {
-        if (file.type !== 'image/gif') {
-          q('#file-error').innerHTML = 'The uploaded file is not a gif';
-        }
-      } else {
-        q('#file-error').innerHTML = 'File is required';
-      }
-
-      if (user && gifTitle && file.type === 'image/gif') {
-        const formData = new FormData();
-        formData.append('file', file);
-
+     if(validateForm(user,gifTitle,file)){
+      const formData = new FormData();
+      formData.append('file', file);
         filePost(formData, user, gifTitle);
+     }
       }
 
-    }
+    
 
     //delete-button
     if (event.target.classList.contains('delete-button')) {
