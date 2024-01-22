@@ -5,7 +5,7 @@ export const  toUploadView =(uploadValue, uploadList) => {
  
       <div class=upload>
       <button class="openFormButton">Open Form</button>
-      <h2>My Uploads</h2>
+      <h2>📥My Uploads</h2>
       
       <div id="formModal">
    
