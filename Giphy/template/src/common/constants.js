@@ -54,3 +54,5 @@ export const search_URL=(searchTerm,limit=defaultLimit,offset=defaultOffset)=>`h
 ${APY_KEY}&q=${searchTerm}&limit=${limit}&offset=${offset}&rating=g&lang=en&bundle=messaging_non_clips`
 
 export const POST_URL=`https://upload.giphy.com/v1/gifs?api_key=${APY_KEY}`
+
+export const RANDOM_URL=()=>`https://api.giphy.com/v1/gifs/random?api_key=${APY_KEY}&tag=&rating=g`
