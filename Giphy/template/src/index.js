@@ -10,6 +10,8 @@ import { deleteUploadHandler } from './events/upload-events.js';
 import { validateForm } from '../validations/form-validation.js';
 import { renderCategory } from './events/home-events.js';
 import { renderFavorites } from './events/navigation-events.js';
+import { pageMemo } from './data/pageMemorization.js';
+import { activeToggle } from './events/prev-next-active-toggle.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let memoryContainer;
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //category
     if (event.target.classList.contains('category-button')) {
       renderCategory(event.target.getAttribute('type'));
+      pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
     }
 
     // full screen events
@@ -40,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // show  events
     if (event.target.classList.contains('idGif')) {
       renderGifDetails(event.target.getAttribute('data'));
+      pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
     }
 
     //closeButton
@@ -84,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const activePage=q('.activePage')
       if(activePage&&activePage.id==='favoritesID'){
         renderFavorites()
+
       }
     }
     //search-button
@@ -98,6 +103,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       q('#search').value='';
       renderSearchItems(search);
+    }
+    //PREVIOUS BUTTON
+    if (event.target.classList.contains('previous-button')) {
+      if(!pageMemo.tail.prev){
+        return;
+      }
+      pageMemo.tail=pageMemo.tail.prev;
+      q(CONTAINER_SELECTOR).innerHTML = pageMemo.tail.value;
+      if(pageMemo.tail.active){
+        activeToggle(pageMemo);
+      }
+
+    }
+    //NEXT BUTTON
+    if (event.target.classList.contains('next-button')) {
+      if(!pageMemo.tail.next){
+        return;
+      }
+      pageMemo.tail=pageMemo.tail.next;
+      q(CONTAINER_SELECTOR).innerHTML = pageMemo.tail.value;
+      
+      if(pageMemo.tail.active){
+        activeToggle(pageMemo);
+      }
     }
 
   });
@@ -115,7 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       q('#search').value='';
       renderSearchItems(search);
+      
     }
+
+    
   });
 
 

@@ -20,27 +20,22 @@ export const  toUploadView =(uploadValue, uploadList) => {
       <input type="file" id="fileInput" value="${uploadValue || ''}">
       <p id='file-error'> </p>
       <button class='submit-button' type="submit">Submit</button>
-      <p> </p>
+      <p></p>
       </div>
       </div>
       <div id="loader"></div>
-      <div class='gif-page'>
-      ${checkType(uploadList)}
-    </div>
-
-      `;
+      <div class='gif-page'>${checkType(uploadList)}</div>`;
 };
 const checkType = (element) => {
   if (Array.isArray(element)) {
-    return element.map((element) => gifUpload(element));
+    return element.map((element) => gifUpload(element)).join('');
     
   }
   return`<h2>No uploads</h2>`
 };
 export const gifUpload =(gif) => 
 {
-return`
-<div class="gif-item">
+return`<div class="gif-item">
 <div class='gif-box'>
     <img src="${gif.images.fixed_width.url}" alt="${gif.title}" class='idGif' data='${gif.id}'>
     <div class="controls">

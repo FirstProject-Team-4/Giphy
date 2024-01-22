@@ -9,6 +9,7 @@ import { toFavoritesView } from '../views/favorites-view.js';
 import { toUploadView } from '../views/upload-view.js';
 import { toAboutView } from '../views/about-view.js';
 import { getMyUploads } from '../data/my-uploads.js';
+import { pageMemo } from '../data/pageMemorization.js';
 // public API
 export const loadPage = (page = '') => {
 
@@ -45,20 +46,24 @@ export const loadPage = (page = '') => {
 
 const renderHome = () => {
   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
+  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 export const renderUpload =async (uploadValue) => {
  const listOfUploads=getMyUploads()
  //const uploadGifs=await loadMyUpload(listOfUploads);
   q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue,listOfUploads);
+  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 
 const renderTrending = async () => {
   const trendingGifs = await loadTrending(30);
   q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trendingGifs);
+  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 export const renderGifDetails = async (id) => {
   const details = await loadGifId(id);
   q(CONTAINER_SELECTOR).innerHTML = toGifDetailsView(details);
+  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 
 };
 
@@ -66,8 +71,10 @@ export const renderFavorites = async () => {
   const favorites = await loadFavoriteGifs();
 
   q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favorites);
+  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 
 const renderAbout = () => {
   q(CONTAINER_SELECTOR).innerHTML = toAboutView();
+  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };

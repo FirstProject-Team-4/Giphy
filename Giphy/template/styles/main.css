@@ -1,6 +1,6 @@
-/* Template styling */
+/* Template styling
 @import "compass";
-@import 'Masonry';
+@import 'Masonry'; */
 
 html,
 body {
@@ -172,9 +172,15 @@ span.favorite:hover {
   margin-left: 90%;
 }
 .fullscreen-gif { 
- height: 80%;
- width: 80%;
- 
+  display: flex;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  justify-content: center; 
+  align-items: center; 
+  border: 5px solid #0c0c0c;
 }
 /* loading start */
 #loader {
@@ -476,3 +482,8 @@ span.favorite:hover {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   
 }
+.activePage {
+border: 4px solid rgb(255, 0, 149);
+}
+
+
