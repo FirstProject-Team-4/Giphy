@@ -494,8 +494,6 @@ border: 4px solid rgb(255, 0, 149);
 }
 
 
-
-
 /* button type 1*/
 /* .category-button {
   padding: 0.9em 1.9em;
@@ -594,5 +592,9 @@ h2{
   font-size: 30px;
 }
 
+.navigation-button{
+  background-image: linear-gradient(144deg, #8defcd, #6fd6f0 50%, #aa84e4);
+
+}
 
 
