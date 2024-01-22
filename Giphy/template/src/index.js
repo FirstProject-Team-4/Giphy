@@ -12,6 +12,7 @@ import { renderCategory } from './events/home-events.js';
 import { renderFavorites } from './events/navigation-events.js';
 import { pageMemo } from './data/pageMemorization.js';
 import { activeToggle } from './events/prev-next-active-toggle.js';
+import { renderUploadGifDetails } from './events/navigation-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let memoryContainer;
@@ -40,12 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
       event.target.classList.remove('fullscreen-gif');
       q(CONTAINER_SELECTOR).innerHTML = memoryContainer;
     }
-    // show  events
+    // single-details events
     if (event.target.classList.contains('idGif')) {
       renderGifDetails(event.target.getAttribute('data'));
       pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
     }
 
+    //my-upload-single-details events
+    if (event.target.classList.contains('myUploadGif')) {
+      renderUploadGifDetails(event.target.getAttribute('data'));
+      pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
+    }
     //closeButton
     if (event.target.classList.contains('closeButton')) {
       document.getElementById('formModal').style.display = 'none';
@@ -73,15 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-
-
     //delete-button
     if (event.target.classList.contains('delete-button')) {
       console.log(event.target.getAttribute('delete'))
       deleteUploadHandler(event.target.getAttribute('delete'));
 
     }
-
 //favorite-button-e
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));

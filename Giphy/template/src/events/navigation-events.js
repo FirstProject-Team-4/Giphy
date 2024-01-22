@@ -10,6 +10,9 @@ import { toUploadView } from '../views/upload-view.js';
 import { toAboutView } from '../views/about-view.js';
 import { getMyUploads } from '../data/my-uploads.js';
 import { pageMemo } from '../data/pageMemorization.js';
+import { loadUploadGifId } from '../requests/request-service.js';
+import { myGifDetailsView } from '../views/upload-single-details-view.js';
+
 // public API
 export const loadPage = (page = '') => {
 
@@ -64,7 +67,12 @@ export const renderGifDetails = async (id) => {
   const details = await loadGifId(id);
   q(CONTAINER_SELECTOR).innerHTML = toGifDetailsView(details);
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
+};
 
+export const renderUploadGifDetails = (id) => {
+  const details = loadUploadGifId(id);
+  q(CONTAINER_SELECTOR).innerHTML = myGifDetailsView(details);
+  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 
 export const renderFavorites = async () => {
