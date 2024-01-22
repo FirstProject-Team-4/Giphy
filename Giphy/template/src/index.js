@@ -9,6 +9,7 @@ import { CONTAINER_SELECTOR } from './common/constants.js';
 import { deleteUploadHandler } from './events/upload-events.js';
 import { validateForm } from '../validations/form-validation.js';
 import { renderCategory } from './events/home-events.js';
+import { renderFavorites } from './events/navigation-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let memoryContainer;
@@ -61,14 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const user = q('#input1').value; // input 1 -user
       const gifTitle = q('#input2').value; // input 2 -gif title
       const file = fileInput.files[0]; // input 3 -file
-     if(validateForm(user,gifTitle,file)){
-      const formData = new FormData();
-      formData.append('file', file);
+      if (validateForm(user, gifTitle, file)) {
+        const formData = new FormData();
+        formData.append('file', file);
         filePost(formData, user, gifTitle);
-     }
       }
+    }
 
-    
+
 
     //delete-button
     if (event.target.classList.contains('delete-button')) {
@@ -77,9 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-
+//favorite-button-e
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
+      const activePage=q('.activePage')
+      if(activePage&&activePage.id==='favoritesID'){
+        renderFavorites()
+      }
     }
     //search-button
     if (event.target.classList.contains('search-button')) {
@@ -87,7 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!search) {
         return;
       }
-
+      const activePage=q('.activePage')
+      if(activePage){
+        activePage.classList.remove('activePage');
+      }
+      q('#search').value='';
       renderSearchItems(search);
     }
 
@@ -100,10 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!search) {
         return;
       }
-
+      const activePage=q('.activePage')
+      if(activePage){
+        activePage.classList.remove('activePage');
+      }
+      q('#search').value='';
       renderSearchItems(search);
-
-
     }
   });
 

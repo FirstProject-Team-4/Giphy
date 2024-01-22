@@ -62,7 +62,7 @@ export const renderGifDetails = async (id) => {
 
 };
 
-const renderFavorites = async () => {
+export const renderFavorites = async () => {
   const favorites = await loadFavoriteGifs();
 
   q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favorites);
