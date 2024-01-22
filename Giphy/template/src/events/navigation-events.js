@@ -69,7 +69,6 @@ export const renderGifDetails = async (id) => {
 
 export const renderFavorites = async () => {
   const favorites = await loadFavoriteGifs();
-
   q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favorites);
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };

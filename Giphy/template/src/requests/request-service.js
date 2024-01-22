@@ -1,6 +1,6 @@
 import { Trending_URL,search_URL,ID_URL,IDs_URL } from '../common/constants.js';
 import {getFavorites} from '../data/favorites.js';
-
+import { RANDOM_URL } from '../common/constants.js';
 export const loadMyUpload=async(myUploads)=>{
 
     if (myUploads.length===0){
@@ -37,8 +37,14 @@ export const loadGifId=async(id)=>{
 }
 export const loadFavoriteGifs=async()=>{
     const favorites = getFavorites().join(',');
+
     if (!favorites){
-     return [];
+
+        const response =await fetch(RANDOM_URL())
+        const result=await response.json();
+result.data.myRandom=true;
+
+        return [result.data];
     }
     const response =await fetch(IDs_URL(favorites));
     const result=await response.json();
