@@ -572,3 +572,8 @@ img {
   height: 140px;
   margin-left: 50px;
 }
+
+ #upload{
+  margin-left: 3px;
+  color: #000000;
+}

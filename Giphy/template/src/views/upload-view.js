@@ -17,7 +17,7 @@ export const toUploadView =(uploadValue, uploadList) => {
    
       <div id='form'>
       <button class='closeButton'>X</button>
-      <h2>Upload Gif</h2>
+      <h2 id='upload'>Upload Gif</h2>
       <input type="text" id="input1" placeholder="user">
       <p id='user-error'> </p>
       <input type="text" id="input2" placeholder="gif title">
