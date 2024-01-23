@@ -311,11 +311,6 @@ span.favorite:hover {
   justify-content: flex-start;
 }
 
-.gif-box {
-  flex: 1 0 auto;
-  position: relative;
-  /* relative positioning for absolute positioned child elements */
-}
 
 .gif-box img {
   width: 200px;
@@ -576,4 +571,8 @@ img {
  #upload{
   margin-left: 3px;
   color: #000000;
+}
+.gif-box {
+  position: relative;
+  padding-right: 10px;
 }
