@@ -631,17 +631,15 @@ img{
   font-size: 23px;
 }
 .Gif-img {
-
+  margin-top: 90px;
   max-width: 100%;
-  height: 100px;
-  margin-left: 50%;
-  
-
+  height: 110px;
 }
 
-
-
-
+.myGifUpload{
+  max-width: 100%;
+  height: 230px;
+}
 
 .project-description{
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -669,4 +667,28 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 .Gif-title, #text {
   flex: 1;
+  
+}
+
+.Gif-user{
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.uploadTitle{
+  font-size: 50px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.Gif-title h1{
+  font-size: 35px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 20px;
+}
+
+.myGifUpload-date{
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 25px;
 }
