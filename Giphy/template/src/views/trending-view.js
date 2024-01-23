@@ -1,11 +1,12 @@
-import { renderFavoriteStatus } from "../events/favorites-events.js";
+/* eslint-disable linebreak-style */
+import { renderFavoriteStatus } from '../events/favorites-events.js';
 /**
  * Converts an array of trending gifs into a HTML string representing the trending view.
  * @param {Array} trendingGifs - The array of trending gifs.
- * @returns {string} - The HTML string representing the trending view.
+ * @return {string} - The HTML string representing the trending view.
  */
 export const toTrendingView=(trendingGifs)=>{
-    return `
+  return `
     <section class="trending">
     <h2>🔥 Trending</h2>
     <div class='gif-page'>
@@ -18,7 +19,7 @@ export const toTrendingView=(trendingGifs)=>{
 /**
  * Converts a trending item object into a HTML view.
  * @param {Object} trendingItem - The trending item object.
- * @returns {string} - The HTML view of the trending item.
+ * @return {string} - The HTML view of the trending item.
  */
 export const toTrendingItemView=(trendingItem)=>`
 <div class='gif-box'>

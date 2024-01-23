@@ -1,12 +1,12 @@
-
-import { renderFavoriteStatus } from "../events/favorites-events.js";
+/* eslint-disable linebreak-style */
+import { renderFavoriteStatus } from '../events/favorites-events.js';
 /**
  * Converts the upload value and upload list into an HTML string representing the upload view.
  * @param {string} uploadValue - The value of the upload input field.
  * @param {Array} uploadList - The list of uploaded items.
- * @returns {string} - The HTML string representing the upload view.
+ * @return {string} - The HTML string representing the upload view.
  */
-export const  toUploadView =(uploadValue, uploadList) => {
+export const toUploadView =(uploadValue, uploadList) => {
   return `
  
       <div class=upload>
@@ -37,14 +37,14 @@ export const  toUploadView =(uploadValue, uploadList) => {
  * If the element is an array, it maps each element to the gifUpload function and joins the results.
  * If the element is not an array, it returns a string indicating no uploads.
  * @param {any} element - The element to check the type of.
- * @returns {string} - The HTML string based on the type of the element.
+ * @return {string} - The HTML string based on the type of the element.
  */
 const checkType = (element) => {
   if (Array.isArray(element)) {
-    return element.map((element) => gifUpload(element)).join('');
-    
+    return element.map((e) => gifUpload(e)).join('');
+
   }
-  return`<h2>No uploads</h2>`
+  return `<h2>No uploads</h2>`;
 };
 
 
@@ -52,11 +52,10 @@ const checkType = (element) => {
  * Renders a GIF upload item.
  *
  * @param {Object} gif - The GIF object.
- * @returns {string} - The HTML markup for the GIF upload item.
+ * @return {string} - The HTML markup for the GIF upload item.
  */
-export const gifUpload =(gif) => 
-{
-return`<div class="gif-item">
+export const gifUpload =(gif) => {
+  return `<div class="gif-item">
 <div class='gif-box'>
     <img src="${gif.images.fixed_width.url}" alt="${gif.title}" class='myUploadGif' data='${gif.id}'>
     <div class="controls">
@@ -66,5 +65,6 @@ return`<div class="gif-item">
     </div>
   </div>
 </div>
-`};
+`;
+};
 

@@ -1,10 +1,10 @@
-
+/* eslint-disable linebreak-style */
 /**
  * Generates the HTML template for the home view.
- * @returns {string} The HTML template for the home view.
+ * @return {string} The HTML template for the home view.
  */
 export const toHomeView=()=>{
-    return `
+  return `
     <section class="category">
     <h2 id='home-view'> Choose your category and have fun😄</h2>
   
@@ -25,6 +25,3 @@ export const toHomeView=()=>{
   </section>
   `;
 };
-
-
-

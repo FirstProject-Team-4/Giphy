@@ -1,9 +1,10 @@
-import { renderFavoriteStatus } from "../events/favorites-events.js";
+/* eslint-disable linebreak-style */
+import { renderFavoriteStatus } from '../events/favorites-events.js';
 /**
  * Converts an array of search gifs into a search view HTML string.
  *
  * @param {Array} searchGifs - The array of search gifs.
- * @returns {string} The search view HTML string.
+ * @return {string} The search view HTML string.
  */
 export const toSearchView = (searchGifs) => {
   return `
@@ -19,7 +20,7 @@ export const toSearchView = (searchGifs) => {
 /**
  * Converts a search item into a view for displaying in the search view.
  * @param {Object} searchItem - The search item object.
- * @returns {string} - The HTML representation of the search item view.
+ * @return {string} - The HTML representation of the search item view.
  */
 export const toSearchItemView = (searchItem) => `
 <div class='gif-box'>

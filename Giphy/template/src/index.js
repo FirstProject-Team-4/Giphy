@@ -1,7 +1,8 @@
+/* eslint-disable linebreak-style */
 import { HOME } from './common/constants.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
 import { q } from './events/helpers.js';
-import { loadPage, } from './events/navigation-events.js';
+import { loadPage } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderGifDetails } from './events/navigation-events.js';
 import { filePost } from './events/upload-events.js';
@@ -19,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // add global listener
   document.addEventListener('click', event => {
 
-    // nav events 
+    // nav events
     if (event.target.classList.contains('nav-link')) {
       loadPage(event.target.getAttribute('data-page'));
     }
-    //category
+    // category
     if (event.target.classList.contains('category-button')) {
       renderCategory(event.target.getAttribute('type'));
       pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       q(CONTAINER_SELECTOR).innerHTML = `<img src="${gifUrl}" alt="gif" class="fullscreen-gif">`;
 
     }
-    //disable full screen
+    // disable full screen
     if (event.target.classList.contains('fullscreen-gif')) {
       event.target.classList.remove('fullscreen-gif');
       q(CONTAINER_SELECTOR).innerHTML = memoryContainer;
@@ -47,17 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
       pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
     }
 
-    //my-upload-single-details events
+    // my-upload-single-details events
     if (event.target.classList.contains('myUploadGif')) {
       renderUploadGifDetails(event.target.getAttribute('data'));
       pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
     }
-    //close-button
+    // close-button
     if (event.target.classList.contains('closeButton')) {
       document.getElementById('formModal').style.display = 'none';
     }
 
-    //open-form-button
+    // open-form-button
     if (event.target.classList.contains('openFormButton')) {
       q('#user-error').innerHTML = '';
       q('#title-error').innerHTML = '';
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('formModal').style.display = 'block';
     }
 
-    //submit-button
+    // submit-button
     if (event.target.classList.contains('submit-button')) {
 
       const fileInput = q('#fileInput');
@@ -80,37 +81,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    //delete-button
+    // delete-button
     if (event.target.classList.contains('delete-button')) {
-      console.log(event.target.getAttribute('delete'))
+      console.log(event.target.getAttribute('delete'));
       pageMemo.tail = pageMemo.tail.prev;
       deleteUploadHandler(event.target.getAttribute('delete'));
 
     }
-    //favorite-button-events
+    // favorite-button-events
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
-      const activePage = q('.activePage')
+      const activePage = q('.activePage');
       if (activePage && activePage.id === 'favoritesID') {
         pageMemo.tail = pageMemo.tail.prev;
-        renderFavorites()
+        renderFavorites();
 
       }
     }
-    //search-button
+    // search-button
     if (event.target.classList.contains('search-button')) {
       const search = q('#search').value;
       if (!search) {
         return;
       }
-      const activePage = q('.activePage')
+      const activePage = q('.activePage');
       if (activePage) {
         activePage.classList.remove('activePage');
       }
       q('#search').value = '';
       renderSearchItems(search);
     }
-    //previous-button
+    // previous-button
     if (event.target.classList.contains('previous-button')) {
       if (!pageMemo.tail.prev) {
         return;
@@ -122,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     }
-    //next-button
+    // next-button
     if (event.target.classList.contains('next-button')) {
       if (!pageMemo.tail.next) {
         return;
@@ -137,14 +138,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-  //search-button-enter
-  document.getElementById('search').addEventListener('keypress', function (e) {
+  // search-button-enter
+  document.getElementById('search').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
       const search = q('#search').value;
       if (!search) {
         return;
       }
-      const activePage = q('.activePage')
+      const activePage = q('.activePage');
       if (activePage) {
         activePage.classList.remove('activePage');
       }

@@ -1,11 +1,12 @@
-import { renderFavoriteStatus } from "../events/favorites-events.js";
+/* eslint-disable linebreak-style */
+import { renderFavoriteStatus } from '../events/favorites-events.js';
 /**
  * Converts a category object into a category view HTML string.
  * @param {Array} category - The category object to be converted.
- * @returns {string} The HTML string representing the category view.
+ * @return {string} The HTML string representing the category view.
  */
 export const toCategoryView=(category)=>{
-    return `
+  return `
     <section class="category">
     <h2> Gifs:</h2>
   <div class='gif-page'>
@@ -18,7 +19,7 @@ export const toCategoryView=(category)=>{
 /**
  * Converts a search item into a category item view.
  * @param {Object} searchItem - The search item object.
- * @returns {string} The HTML representation of the category item view.
+ * @return {string} The HTML representation of the category item view.
  */
 export const toCategoryItemView=(searchItem)=>`
 <div class='gif-box'>

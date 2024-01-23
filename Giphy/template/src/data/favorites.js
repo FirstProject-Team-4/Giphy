@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
 /**
@@ -25,6 +26,6 @@ export const removeFavorite = (gifId) => {
 
 /**
  * Retrieves the favorites array.
- * @returns {Array} The favorites array.
+ * @return {Array} The favorites array.
  */
 export const getFavorites = () => [...favorites];

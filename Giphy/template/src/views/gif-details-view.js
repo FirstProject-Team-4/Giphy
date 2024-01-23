@@ -1,16 +1,16 @@
-
+/* eslint-disable linebreak-style */
 /**
  * Converts a trendingItem object into a GIF details view HTML string.
  * @param {Object} trendingItem - The trendingItem object.
- * @returns {string} - The HTML string representing the GIF details view.
+ * @return {string} - The HTML string representing the GIF details view.
  */
- export const toGifDetailsView=(trendingItem)=>{
-  if(!trendingItem.user){
-   trendingItem.user={username:'Anonymous',
-   avatar_url:'https://media.giphy.com/avatars/default5.gif',// prevents bug when user is not defined
-   description:'No description'}
+export const toGifDetailsView=(trendingItem)=>{
+  if (!trendingItem.user) {
+    trendingItem.user={ username: 'Anonymous',
+      avatar_url: 'https://media.giphy.com/avatars/default5.gif',
+      description: 'No description' };
   }
-  return`
+  return `
   <div class= 'card'>
   <h1 class='uploadTitle'>Details:</h1>
   <div class='content-container'>
@@ -25,4 +25,5 @@
     </div>
   </div>
 </div>
-`}
+`;
+};
