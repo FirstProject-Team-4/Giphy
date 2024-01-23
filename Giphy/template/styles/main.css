@@ -340,8 +340,7 @@ span.favorite:hover {
 }
 
 .delete-button {
-
-  right: 0;
+left:84%;
 }
 
 .gif-box:hover .favorite-status,
