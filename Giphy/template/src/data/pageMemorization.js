@@ -17,6 +17,14 @@ class DoublyLinkedList {
     }
  
  
+    /**
+     * Adds a new node with the given value to the end of the linked list.
+     * If the value is already at the end of the list, it does not add a duplicate node.
+     * If the page is active, it saves the active page in the new node.
+     * 
+     * @param {*} value - The value to be added to the linked list.
+     * @returns {void}
+     */
     addLast(value) {
         if(this.tail&&this.tail.value===value){  //check if clicking on the same page
             return;
@@ -38,9 +46,17 @@ class DoublyLinkedList {
     }
 }
 
+/**
+ * Represents a page memorization object.
+ * @type {DoublyLinkedList}
+ */
 export const pageMemo = new DoublyLinkedList();
 
 
+/**
+ * Toggles the active page class based on the provided page object.
+ * @param {Object} page - The page object containing the tail and active properties.
+ */
 export const activeToggle = (page) => {
     const currentActive = q('.activePage');
     if(currentActive){

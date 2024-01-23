@@ -1,4 +1,4 @@
-import { q } from "../src/events/helpers.js";
+import { q } from "../events/helpers.js";
 
 export const validateForm = (user,gifTitle,file) => {
     if (!user) {

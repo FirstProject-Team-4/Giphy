@@ -7,7 +7,7 @@ import { renderGifDetails } from './events/navigation-events.js';
 import { filePost } from './events/upload-events.js';
 import { CONTAINER_SELECTOR } from './common/constants.js';
 import { deleteUploadHandler } from './events/upload-events.js';
-import { validateForm } from '../validations/form-validation.js';
+import { validateForm } from './validations/form-validation.js';
 import { renderCategory } from './events/home-events.js';
 import { renderFavorites } from './events/navigation-events.js';
 import { pageMemo } from './data/pageMemorization.js';
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // add global listener
   document.addEventListener('click', event => {
 
-    // nav events
+    // nav events 
     if (event.target.classList.contains('nav-link')) {
       loadPage(event.target.getAttribute('data-page'));
     }
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       event.target.classList.remove('fullscreen-gif');
       q(CONTAINER_SELECTOR).innerHTML = memoryContainer;
     }
-    // single-details events
+    // single-gif-details events
     if (event.target.classList.contains('idGif')) {
       renderGifDetails(event.target.getAttribute('data'));
       pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
       renderUploadGifDetails(event.target.getAttribute('data'));
       pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
     }
-    //closeButton
+    //close-button
     if (event.target.classList.contains('closeButton')) {
       document.getElementById('formModal').style.display = 'none';
     }
 
-    //openFormButton
+    //open-form-button
     if (event.target.classList.contains('openFormButton')) {
       q('#user-error').innerHTML = '';
       q('#title-error').innerHTML = '';
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       deleteUploadHandler(event.target.getAttribute('delete'));
 
     }
-    //favorite-button-e
+    //favorite-button-events
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
       const activePage = q('.activePage')
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       q('#search').value = '';
       renderSearchItems(search);
     }
-    //PREVIOUS BUTTON
+    //previous-button
     if (event.target.classList.contains('previous-button')) {
       if (!pageMemo.tail.prev) {
         return;
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     }
-    //NEXT BUTTON
+    //next-button
     if (event.target.classList.contains('next-button')) {
       if (!pageMemo.tail.next) {
         return;
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-  //let recentSearches = [];
+  //search-button-enter
   document.getElementById('search').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       const search = q('#search').value;

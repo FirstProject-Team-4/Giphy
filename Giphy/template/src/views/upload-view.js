@@ -1,5 +1,11 @@
 
 import { renderFavoriteStatus } from "../events/favorites-events.js";
+/**
+ * Converts the upload value and upload list into an HTML string representing the upload view.
+ * @param {string} uploadValue - The value of the upload input field.
+ * @param {Array} uploadList - The list of uploaded items.
+ * @returns {string} - The HTML string representing the upload view.
+ */
 export const  toUploadView =(uploadValue, uploadList) => {
   return `
  
@@ -26,6 +32,13 @@ export const  toUploadView =(uploadValue, uploadList) => {
       <div id="loader"></div>
       <div class='gif-page'>${checkType(uploadList)}</div>`;
 };
+/**
+ * Checks the type of an element and returns the corresponding HTML string.
+ * If the element is an array, it maps each element to the gifUpload function and joins the results.
+ * If the element is not an array, it returns a string indicating no uploads.
+ * @param {any} element - The element to check the type of.
+ * @returns {string} - The HTML string based on the type of the element.
+ */
 const checkType = (element) => {
   if (Array.isArray(element)) {
     return element.map((element) => gifUpload(element)).join('');
@@ -33,6 +46,14 @@ const checkType = (element) => {
   }
   return`<h2>No uploads</h2>`
 };
+
+
+/**
+ * Renders a GIF upload item.
+ *
+ * @param {Object} gif - The GIF object.
+ * @returns {string} - The HTML markup for the GIF upload item.
+ */
 export const gifUpload =(gif) => 
 {
 return`<div class="gif-item">

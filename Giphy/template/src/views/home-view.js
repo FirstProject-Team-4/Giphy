@@ -1,8 +1,12 @@
 
+/**
+ * Generates the HTML template for the home view.
+ * @returns {string} The HTML template for the home view.
+ */
 export const toHomeView=()=>{
     return `
     <section class="category">
-    <h2> Choose your category and have fun😄</h2>
+    <h2 id='home-view'> Choose your category and have fun😄</h2>
   
     <button class='category-button' type='cat' >Cats</button>
     <button class='category-button' type='dog' >Dogs</button>

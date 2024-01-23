@@ -1,4 +1,9 @@
 import { renderFavoriteStatus } from "../events/favorites-events.js";
+/**
+ * Converts an array of trending gifs into a HTML string representing the trending view.
+ * @param {Array} trendingGifs - The array of trending gifs.
+ * @returns {string} - The HTML string representing the trending view.
+ */
 export const toTrendingView=(trendingGifs)=>{
     return `
     <section class="trending">
@@ -10,6 +15,11 @@ export const toTrendingView=(trendingGifs)=>{
   `;
 };
 
+/**
+ * Converts a trending item object into a HTML view.
+ * @param {Object} trendingItem - The trending item object.
+ * @returns {string} - The HTML view of the trending item.
+ */
 export const toTrendingItemView=(trendingItem)=>`
 <div class='gif-box'>
     <img src="${trendingItem.images.fixed_width.url}" alt="${trendingItem.title}" class='idGif' data='${trendingItem.id}'>

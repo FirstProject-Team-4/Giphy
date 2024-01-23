@@ -1,7 +1,7 @@
 import { CONTAINER_SELECTOR, HOME, TRENDING, UPLOAD,ABOUT } from '../common/constants.js';
 import { toHomeView } from '../views/home-view.js';
 import { q, setActiveNav } from './helpers.js';
-import { loadTrending, loadGifId, loadFavoriteGifs,loadMyUpload } from '../requests/request-service.js';
+import { loadTrending, loadGifId, loadFavoriteGifs } from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toGifDetailsView } from '../views/gif-details-view.js';
 import { FAVORITES } from '../common/constants.js';
@@ -14,6 +14,12 @@ import { loadUploadGifId } from '../requests/request-service.js';
 import { myGifDetailsView } from '../views/upload-single-details-view.js';
 
 // public API
+/**
+ * Loads the specified page and renders its content.
+ * 
+ * @param {string} page - The page to load.
+ * @returns {null} Returns null if the page is not supported.
+ */
 export const loadPage = (page = '') => {
 
   switch (page) {
@@ -47,34 +53,65 @@ export const loadPage = (page = '') => {
 };
 
 
+/**
+ * Renders the home view by updating the innerHTML of the container element
+ * with the result of the toHomeView function. Also adds the updated innerHTML
+ * to the pageMemo.
+ */
 const renderHome = () => {
   q(CONTAINER_SELECTOR).innerHTML = toHomeView();
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
+
+/**
+ * Renders the upload view with the given upload value.
+ * @param {any} uploadValue - The value to be passed to the upload view.
+ * @returns {Promise<void>} - A promise that resolves when the upload view is rendered.
+ */
 export const renderUpload =async (uploadValue) => {
  const listOfUploads=getMyUploads()
- //const uploadGifs=await loadMyUpload(listOfUploads);
   q(CONTAINER_SELECTOR).innerHTML = toUploadView(uploadValue,listOfUploads);
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 
+/**
+ * Renders the trending gifs on the page.
+ * @returns {Promise<void>} A promise that resolves when the rendering is complete.
+ */
 const renderTrending = async () => {
   const trendingGifs = await loadTrending(30);
   q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trendingGifs);
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
+
+/**
+ * Renders the GIF details on the page.
+ * 
+ * @param {string} id - The ID of the GIF.
+ * @returns {Promise<void>} - A promise that resolves when the GIF details are rendered.
+ */
 export const renderGifDetails = async (id) => {
   const details = await loadGifId(id);
   q(CONTAINER_SELECTOR).innerHTML = toGifDetailsView(details);
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 
+/**
+ * Renders the upload GIF details.
+ * 
+ * @param {string} id - The ID of the GIF to render.
+ * @returns {void}
+ */
 export const renderUploadGifDetails = (id) => {
   const details = loadUploadGifId(id);
   q(CONTAINER_SELECTOR).innerHTML = myGifDetailsView(details);
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 
+/**
+ * Renders the favorite gifs on the page.
+ * @returns {Promise<void>} A promise that resolves when the rendering is complete.
+ */
 export const renderFavorites = async () => {
   const favorites = await loadFavoriteGifs();
   q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favorites);
@@ -87,6 +124,9 @@ export const renderFavorites = async () => {
   pageMemo.tail.favorite=1;
 };
 
+/**
+ * Renders the about view by updating the innerHTML of the container element.
+ */
 const renderAbout = () => {
   q(CONTAINER_SELECTOR).innerHTML = toAboutView();
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);

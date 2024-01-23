@@ -1,4 +1,9 @@
 import { renderFavoriteStatus } from "../events/favorites-events.js";
+/**
+ * Converts a category object into a category view HTML string.
+ * @param {Array} category - The category object to be converted.
+ * @returns {string} The HTML string representing the category view.
+ */
 export const toCategoryView=(category)=>{
     return `
     <section class="category">
@@ -10,6 +15,11 @@ export const toCategoryView=(category)=>{
   `;
 };
 
+/**
+ * Converts a search item into a category item view.
+ * @param {Object} searchItem - The search item object.
+ * @returns {string} The HTML representation of the category item view.
+ */
 export const toCategoryItemView=(searchItem)=>`
 <div class='gif-box'>
     <img src="${searchItem.images.fixed_width.url}" alt="${searchItem.title}" class='idGif' data='${searchItem.id}'>

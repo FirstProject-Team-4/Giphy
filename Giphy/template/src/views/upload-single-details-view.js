@@ -1,3 +1,9 @@
+/**
+ * Generates the HTML markup for displaying the details of a single GIF item.
+ *
+ * @param {Object} gifItem - The GIF item object containing the details.
+ * @returns {string} The HTML markup for the GIF details view.
+ */
 export const myGifDetailsView = (gifItem) => {
   return `
 <div class= 'card'>

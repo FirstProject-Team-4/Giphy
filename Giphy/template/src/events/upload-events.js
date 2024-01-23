@@ -4,11 +4,14 @@ import { renderUpload } from "./navigation-events.js";
 import { deleteUpload } from "../data/my-uploads.js";
 import { loadingScreenOn } from "./loading-screen-event.js";
 
-// setTimeout(() => {
-//     document.getElementById('loader').style.display = 'none';
-//     renderUpload();
-//   }, 8000);
 
+/**
+ * Uploads a file using a POST request and adds the uploaded file to the UI.
+ * @param {FormData} formData - The form data containing the file to be uploaded.
+ * @param {string} user - The user's information.
+ * @param {string} gifTitle - The title of the GIF.
+ * @returns {Promise<void>} - A promise that resolves when the file is uploaded and added to the UI.
+ */
 export async function filePost(formData, user, gifTitle) {
     try {
         loadingScreenOn()
@@ -28,6 +31,10 @@ export async function filePost(formData, user, gifTitle) {
 
 }
 
+/**
+ * Deletes an upload with the specified ID.
+ * @param {string} id - The ID of the upload to delete.
+ */
 export function deleteUploadHandler(id) {
     deleteUpload(id);
     renderUpload();

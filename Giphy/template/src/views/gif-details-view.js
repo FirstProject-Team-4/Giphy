@@ -1,4 +1,9 @@
 
+/**
+ * Converts a trendingItem object into a GIF details view HTML string.
+ * @param {Object} trendingItem - The trendingItem object.
+ * @returns {string} - The HTML string representing the GIF details view.
+ */
  export const toGifDetailsView=(trendingItem)=>{
   if(!trendingItem.user){
    trendingItem.user={username:'Anonymous',

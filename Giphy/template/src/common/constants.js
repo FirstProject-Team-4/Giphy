@@ -14,7 +14,7 @@ export const EMPTY_STAR = '☆';
 
 
 export const APY_KEY='RAHcDmbbXr75YCd1PKOMAnAMwOeBaGni';
-const defaultLimit = 54;
+const defaultLimit =48;
 const defaultOffset = 0;
 /**
  * Returns the URL for trending GIFs.
@@ -55,4 +55,9 @@ ${APY_KEY}&q=${searchTerm}&limit=${limit}&offset=${offset}&rating=g&lang=en&bund
 
 export const POST_URL=`https://upload.giphy.com/v1/gifs?api_key=${APY_KEY}`
 
+/**
+ * Returns the URL for fetching a random GIF from the Giphy API.
+ *
+ * @returns {string} The URL for fetching a random GIF.
+ */
 export const RANDOM_URL=()=>`https://api.giphy.com/v1/gifs/random?api_key=${APY_KEY}&tag=&rating=g`
