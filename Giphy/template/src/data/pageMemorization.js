@@ -2,6 +2,7 @@ import { q } from "../events/helpers.js";
 class LinkedListNode {
     constructor(value) {
         this.value = value;
+        this.favorite = null;
         this.active=null;
         this.next = null;
         this.prev = null;
@@ -36,4 +37,14 @@ class DoublyLinkedList {
         this.tail = newNode;
     }
 }
+
 export const pageMemo = new DoublyLinkedList();
+
+
+export const activeToggle = (page) => {
+    const currentActive = q('.activePage');
+    if(currentActive){
+      currentActive.classList.remove('activePage');
+    }
+    page.tail.active.classList.add('activePage');
+    }

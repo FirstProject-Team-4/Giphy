@@ -11,7 +11,7 @@ import { validateForm } from '../validations/form-validation.js';
 import { renderCategory } from './events/home-events.js';
 import { renderFavorites } from './events/navigation-events.js';
 import { pageMemo } from './data/pageMemorization.js';
-import { activeToggle } from './events/prev-next-active-toggle.js';
+import { activeToggle } from './data/pageMemorization.js';
 import { renderUploadGifDetails } from './events/navigation-events.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -76,20 +76,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData();
         formData.append('file', file);
         filePost(formData, user, gifTitle);
+        pageMemo.tail = pageMemo.tail.prev;
       }
     }
 
     //delete-button
     if (event.target.classList.contains('delete-button')) {
       console.log(event.target.getAttribute('delete'))
+      pageMemo.tail = pageMemo.tail.prev;
       deleteUploadHandler(event.target.getAttribute('delete'));
 
     }
-//favorite-button-e
+    //favorite-button-e
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
-      const activePage=q('.activePage')
-      if(activePage&&activePage.id==='favoritesID'){
+      const activePage = q('.activePage')
+      if (activePage && activePage.id === 'favoritesID') {
+        pageMemo.tail = pageMemo.tail.prev;
         renderFavorites()
 
       }
@@ -100,34 +103,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!search) {
         return;
       }
-      const activePage=q('.activePage')
-      if(activePage){
+      const activePage = q('.activePage')
+      if (activePage) {
         activePage.classList.remove('activePage');
       }
-      q('#search').value='';
+      q('#search').value = '';
       renderSearchItems(search);
     }
     //PREVIOUS BUTTON
     if (event.target.classList.contains('previous-button')) {
-      if(!pageMemo.tail.prev){
+      if (!pageMemo.tail.prev) {
         return;
       }
-      pageMemo.tail=pageMemo.tail.prev;
+      pageMemo.tail = pageMemo.tail.prev;
       q(CONTAINER_SELECTOR).innerHTML = pageMemo.tail.value;
-      if(pageMemo.tail.active){
+      if (pageMemo.tail.active) {
         activeToggle(pageMemo);
       }
 
     }
     //NEXT BUTTON
     if (event.target.classList.contains('next-button')) {
-      if(!pageMemo.tail.next){
+      if (!pageMemo.tail.next) {
         return;
       }
-      pageMemo.tail=pageMemo.tail.next;
+      pageMemo.tail = pageMemo.tail.next;
       q(CONTAINER_SELECTOR).innerHTML = pageMemo.tail.value;
-      
-      if(pageMemo.tail.active){
+
+      if (pageMemo.tail.active) {
         activeToggle(pageMemo);
       }
     }
@@ -141,16 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!search) {
         return;
       }
-      const activePage=q('.activePage')
-      if(activePage){
+      const activePage = q('.activePage')
+      if (activePage) {
         activePage.classList.remove('activePage');
       }
-      q('#search').value='';
+      q('#search').value = '';
       renderSearchItems(search);
-      
+
     }
 
-    
+
   });
 
 
