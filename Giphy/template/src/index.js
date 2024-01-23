@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // category
     if (event.target.classList.contains('category-button')) {
       renderCategory(event.target.getAttribute('type'));
+      const activePage = q('.activePage');
+      if (activePage) {
+        activePage.classList.remove('activePage');
+      }
     }
 
     // full screen events
