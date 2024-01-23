@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // category
     if (event.target.classList.contains('category-button')) {
       renderCategory(event.target.getAttribute('type'));
-      pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
     }
 
     // full screen events
