@@ -9,8 +9,8 @@ export const myGifDetailsView = (gifItem) => {
       <p class='myGifUpload-date'>Upoaded on: ${gifItem.myDate}</p>
     </div>
     <div id='text'>
-    <p><img src='${gifItem.user.avatar_url}' alt="${gifItem.user.username}" class='Gif-img'></p>
     <p class='Gif-user'>User: ${gifItem.myUser}</p>
+    <p><img src='${gifItem.user.avatar_url}' alt="${gifItem.user.username}" class='Gif-img'></p>
     </div>
   </div>
 </div>
