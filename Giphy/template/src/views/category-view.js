@@ -1,21 +1,31 @@
 /* eslint-disable linebreak-style */
 import { renderFavoriteStatus } from '../events/favorites-events.js';
+import { defaultLimit } from '../common/constants.js';
+
+
 /**
- * Converts a category object into a category view HTML string.
- * @param {Array} category - The category object to be converted.
- * @return {string} The HTML string representing the category view.
+ * Generates the HTML markup for the category view.
+ * @param {Array} category - The array of category items.
+ * @param {string} currentSearchTerm - The current search term.
+ * @return {string} The HTML markup for the category view.
  */
-export const toCategoryView=(category)=>{
+export const toCategoryView=(category, currentSearchTerm)=>{
   return `
     <section class="category">
-    <h2> Gifs:</h2>
-  <div class='gif-page'>
+    <h2>${currentSearchTerm}</h2>
+  <div id='category-gif-box' class='gif-page'>
   ${category.map(toCategoryItemView).join('')}
   </div>
+  ${moreCategoryGifsButton(category.length, currentSearchTerm)}
 </section>
   `;
 };
-
+const moreCategoryGifsButton = (count, currentSearchTerm) => {
+  if (count&&count % defaultLimit === 0) {
+    return `<button class="more-category-gifs-button" type=${currentSearchTerm}>View more</button>`;
+  }
+  return '';
+};
 /**
  * Converts a search item into a category item view.
  * @param {Object} searchItem - The search item object.

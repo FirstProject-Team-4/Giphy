@@ -2,7 +2,7 @@
 import { HOME } from './common/constants.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
 import { q } from './events/helpers.js';
-import { loadPage } from './events/navigation-events.js';
+import { loadPage, renderMoreCategory, renderMoreSearch, renderMoreTrending } from './events/navigation-events.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderGifDetails } from './events/navigation-events.js';
 import { filePost } from './events/upload-events.js';
@@ -11,9 +11,10 @@ import { deleteUploadHandler } from './events/upload-events.js';
 import { validateForm } from './validations/form-validation.js';
 import { renderCategory } from './events/home-events.js';
 import { renderFavorites } from './events/navigation-events.js';
-import { pageMemo } from './data/pageMemorization.js';
+import { checkPrevArrow, checkNextArrow, pageMemo } from './data/pageMemorization.js';
 import { activeToggle } from './data/pageMemorization.js';
 import { renderUploadGifDetails } from './events/navigation-events.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let memoryContainer;
@@ -48,13 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // single-gif-details events
     if (event.target.classList.contains('idGif')) {
       renderGifDetails(event.target.getAttribute('data'));
+      const activePage = q('.activePage');
+      if (activePage) {
+        activePage.classList.remove('activePage');
+      }
       pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
     }
 
     // my-upload-single-details events
     if (event.target.classList.contains('myUploadGif')) {
       renderUploadGifDetails(event.target.getAttribute('data'));
-      pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
+      const activePage = q('.activePage');
+      if (activePage) {
+        activePage.classList.remove('activePage');
+      }
     }
     // close-button
     if (event.target.classList.contains('closeButton')) {
@@ -91,6 +99,30 @@ document.addEventListener('DOMContentLoaded', () => {
       deleteUploadHandler(event.target.getAttribute('delete'));
 
     }
+    // more-trending-button
+    if (event.target.classList.contains('more-trending-button')) {
+      const moreButtons= document.querySelectorAll('.more-trending-button');
+      moreButtons.forEach(button => {
+        button.classList.add('hidden-more-button');
+      });
+      renderMoreTrending();
+    }
+    // more-search-gifs-button
+    if (event.target.classList.contains('more-search-gifs-button')) {
+      const moreButtons= document.querySelectorAll('.more-search-gifs-button');
+      moreButtons.forEach(button => {
+        button.classList.add('hidden-more-button');
+      });
+      renderMoreSearch(event.target.getAttribute('type'));
+    }
+    // more-category-gifs-button
+    if (event.target.classList.contains('more-category-gifs-button')) {
+      const moreButtons= document.querySelectorAll('.more-category-gifs-button');
+      moreButtons.forEach(button => {
+        button.classList.add('hidden-more-button');
+      });
+      renderMoreCategory(event.target.getAttribute('type'));
+    }
     // favorite-button-events
     if (event.target.classList.contains('favorite')) {
       toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
@@ -121,9 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       pageMemo.tail = pageMemo.tail.prev;
       q(CONTAINER_SELECTOR).innerHTML = pageMemo.tail.value;
-      if (pageMemo.tail.active) {
-        activeToggle(pageMemo);
-      }
+      pageMemo.tail.offset = 0;
+      activeToggle(pageMemo);
+      checkNextArrow();
+      checkPrevArrow();
 
     }
     // next-button
@@ -133,10 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       pageMemo.tail = pageMemo.tail.next;
       q(CONTAINER_SELECTOR).innerHTML = pageMemo.tail.value;
-
-      if (pageMemo.tail.active) {
-        activeToggle(pageMemo);
-      }
+      pageMemo.tail.offset = 0;
+      activeToggle(pageMemo);
+      checkNextArrow();
+      checkPrevArrow();
     }
 
   });
@@ -156,12 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
       renderSearchItems(search);
 
     }
-
-
   });
-
-
   loadPage(HOME);
-
-
 });

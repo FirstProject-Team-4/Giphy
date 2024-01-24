@@ -437,6 +437,7 @@ h2 {
 .upload h2 {
   margin-left: 41.5%;
   font-size: 30px;
+  
 }
 
 #home-view {
@@ -450,7 +451,7 @@ h2 {
   top: 260px;
   left: 15px;
   font-size: 100px;
-  color: rgb(255, 0, 149);
+  color: rgb(255, 0, 149, 0.207);
   cursor: pointer;
 }
 
@@ -459,8 +460,11 @@ h2 {
   top: 260px;
   right: 15px;
   font-size: 100px;
-  color: rgb(255, 0, 149);
+  color: rgba(255, 0, 149, 0.207);
   cursor: pointer;
+}
+.activeArrow {
+  color: rgb(255, 0, 149);
 }
 
 img {
@@ -523,7 +527,6 @@ img {
   text-align: center;
   margin-left: 47px;
 }
-
 .Gif-title h1 {
   font-size: 35px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -574,4 +577,25 @@ img {
 .gif-box {
   position: relative;
   padding-right: 10px;
+}
+
+.more-trending-button, .more-category-gifs-button, .more-search-gifs-button{
+  position: relative;
+  bottom:0%;
+  left:42%;
+  margin-top: 5px;
+  background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
+  background-size: 800% 400%;
+  padding: 1em 2em;
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  transition: all .5s ease-in-out;
+  animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
+}
+.hidden-more-button {
+  display: none;
 }

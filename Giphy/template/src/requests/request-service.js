@@ -4,8 +4,10 @@
 
 import { Trending_URL, search_URL, ID_URL, IDs_URL } from '../common/constants.js';
 import { getFavorites } from '../data/favorites.js';
-import { RANDOM_URL } from '../common/constants.js';
+import { RANDOM_URL, defaultLimit } from '../common/constants.js';
 import { getMyUploads } from '../data/my-uploads.js';
+import { pageMemo } from '../data/pageMemorization.js';
+
 
 /**
  * Loads the user's uploads.
@@ -37,6 +39,39 @@ export const loadMyUpload = async (myUploads) => {
  */
 export const loadTrending = async () => {
   const response = await fetch(Trending_URL());
+  const result = await response.json();
+  return result.data;
+};
+/**
+ * Loads more trending data.
+ * @return {Promise<Array>} The trending data.
+ */
+export const loadMoreTrending = async () => {
+  pageMemo.tail.offset += defaultLimit;
+  const response = await fetch(Trending_URL(defaultLimit, pageMemo.tail.offset));
+  const result = await response.json();
+  console.log(pageMemo.tail.offset);
+  return result.data;
+};
+/**
+ * Loads more items from a specific category.
+ * @param {string} searchTerm - The search term for the category.
+ * @return {Promise<Array>} - A promise that resolves to an array of items from the category.
+ */
+export const loadMoreCategory = async (searchTerm) => {
+  pageMemo.tail.offset += defaultLimit;
+  const response = await fetch(search_URL(searchTerm, defaultLimit, pageMemo.tail.offset));
+  const result = await response.json();
+  return result.data;
+};
+/**
+ * Loads more search results based on the given search term.
+ * @param {string} searchTerm - The search term to load more results for.
+ * @return {Promise<Array>} - A promise that resolves to an array of search results.
+ */
+export const loadMoreSearch = async (searchTerm) => {
+  pageMemo.tail.offset += defaultLimit;
+  const response = await fetch(search_URL(searchTerm, defaultLimit, pageMemo.tail.offset));
   const result = await response.json();
   return result.data;
 };

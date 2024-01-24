@@ -3,6 +3,7 @@ import { q } from '../events/helpers.js';
 class LinkedListNode {
   constructor(value) {
     this.value = value;
+    this.offset = 0;
     this.favorite = null;
     this.active = null;
     this.next = null;
@@ -28,6 +29,9 @@ class DoublyLinkedList {
        */
   addLast(value) {
     if (this.tail && this.tail.value === value) { // check if clicking on the same page
+      if (this.tail.offset) {
+        this.tail.offset = 0;
+      }
       return;
     }
     const newNode = new LinkedListNode(value);
@@ -45,6 +49,8 @@ class DoublyLinkedList {
     }
 
     this.tail = newNode;
+    checkNextArrow();
+    checkPrevArrow();
   }
 }
 
@@ -64,5 +70,21 @@ export const activeToggle = (page) => {
   if (currentActive) {
     currentActive.classList.remove('activePage');
   }
-  page.tail.active.classList.add('activePage');
+  if (page.tail.active) {
+    page.tail.active.classList.add('activePage');
+  }
+};
+export const checkPrevArrow = () => {
+  if (pageMemo.tail.prev) {
+    q('.previous-button').classList.add('activeArrow');
+  } else {
+    q('.previous-button').classList.remove('activeArrow');
+  }
+};
+export const checkNextArrow = () => {
+  if (pageMemo.tail.next) {
+    q('.next-button').classList.add('activeArrow');
+  } else {
+    q('.next-button').classList.remove('activeArrow');
+  }
 };

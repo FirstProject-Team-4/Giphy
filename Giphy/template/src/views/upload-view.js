@@ -40,11 +40,10 @@ export const toUploadView =(uploadValue, uploadList) => {
  * @return {string} - The HTML string based on the type of the element.
  */
 const checkType = (element) => {
-  if (Array.isArray(element)) {
+  if (Array.isArray(element) && element.length > 0) {
     return element.map((e) => gifUpload(e)).join('');
-
   }
-  return `<h2>No uploads</h2>`;
+  return `The upload list is empty.`;
 };
 
 

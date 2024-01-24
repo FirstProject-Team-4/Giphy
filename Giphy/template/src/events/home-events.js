@@ -12,6 +12,6 @@ import { pageMemo } from '../data/pageMemorization.js';
  */
 export const renderCategory = async (item) => {
   const category = await loadCategory(item);
-  q(CONTAINER_SELECTOR).innerHTML = toCategoryView(category);
+  q(CONTAINER_SELECTOR).innerHTML = toCategoryView(category, item);
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };

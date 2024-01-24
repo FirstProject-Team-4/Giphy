@@ -1,5 +1,6 @@
 /* eslint-disable linebreak-style */
 import { renderFavoriteStatus } from '../events/favorites-events.js';
+import { defaultLimit } from '../common/constants.js';
 /**
  * Converts an array of trending gifs into a HTML string representing the trending view.
  * @param {Array} trendingGifs - The array of trending gifs.
@@ -9,11 +10,23 @@ export const toTrendingView=(trendingGifs)=>{
   return `
     <section class="trending">
     <h2>🔥 Trending</h2>
-    <div class='gif-page'>
+    <div id='trending-gifs-id' class='gif-page'>
       ${trendingGifs.map(toTrendingItemView).join('')}
     </div>
+    ${moreTrendingButton(trendingGifs.length)}
   </section>
   `;
+};
+/**
+ * Generates a button to view more trending items.
+ * @param {number} count - The current count of trending items.
+ * @return {string} - The HTML string representing the button.
+ */
+const moreTrendingButton = (count) => {
+  if (count&&count % defaultLimit === 0) {
+    return `<button class="more-trending-button">View more</button>`;
+  }
+  return '';
 };
 
 /**

@@ -2,7 +2,7 @@
 import { CONTAINER_SELECTOR, HOME, TRENDING, UPLOAD, ABOUT } from '../common/constants.js';
 import { toHomeView } from '../views/home-view.js';
 import { q, setActiveNav } from './helpers.js';
-import { loadTrending, loadGifId, loadFavoriteGifs } from '../requests/request-service.js';
+import { loadTrending, loadGifId, loadFavoriteGifs, loadMoreCategory, loadMoreSearch } from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toGifDetailsView } from '../views/gif-details-view.js';
 import { FAVORITES } from '../common/constants.js';
@@ -13,6 +13,8 @@ import { getMyUploads } from '../data/my-uploads.js';
 import { pageMemo } from '../data/pageMemorization.js';
 import { loadUploadGifId } from '../requests/request-service.js';
 import { myGifDetailsView } from '../views/upload-single-details-view.js';
+import { loadMoreTrending } from '../requests/request-service.js';
+import { addMoreCategory, addMoreSearch, addMoreTrending } from '../views/more-gifs-view.js';
 
 // public API
 /**
@@ -106,6 +108,10 @@ export const renderGifDetails = async (id) => {
 export const renderUploadGifDetails = (id) => {
   const details = loadUploadGifId(id);
   q(CONTAINER_SELECTOR).innerHTML = myGifDetailsView(details);
+  const activePage = q('.activePage');
+  if (activePage) {
+    activePage.classList.remove('activePage');
+  }
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 };
 
@@ -131,4 +137,18 @@ export const renderFavorites = async () => {
 const renderAbout = () => {
   q(CONTAINER_SELECTOR).innerHTML = toAboutView();
   pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
+};
+
+export const renderMoreTrending = async () => {
+  const trendingGifs = await loadMoreTrending();
+  addMoreTrending(trendingGifs);
+};
+
+export const renderMoreCategory = async (searchTerm) => {
+  const searchedGifs = await loadMoreCategory(searchTerm);
+  addMoreCategory(searchedGifs, searchTerm);
+};
+export const renderMoreSearch = async (searchTerm) => {
+  const searchedGifs = await loadMoreSearch(searchTerm);
+  addMoreSearch(searchedGifs, searchTerm);
 };

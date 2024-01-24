@@ -12,7 +12,7 @@ export const toAboutView = () => `
     <h2 class='project-description'> Veselina Mancheva & Yordan Aleksandrov</h2>
 
     <h2 class='information'>Project Description</h2>
-    <p class='project-description'>Giphy is an application that lets you have fun with your friends. You can save your favourite GIFs in the Favourites section or upload your own in the Upload section. In the Home section, you can find different categories and quickly find the GIFs you want to share. And what's even better, you can access the most popular GIFs with just one click in Trending.</p>
+    <p class='project-description'>Giphy is an application that lets you have fun with your friends. You can save your favourite GIFs in the Favourites section or upload your own in the Upload section. In the Home section, you can find different categories and quickly find the GIFs you want to see. And what's even better, you can access the most popular GIFs with just one click in Trending.</p>
     <h2 class='information'>Date: </h2>
     <p class='project-description'> 24.01.2024 </p>
   </div>
