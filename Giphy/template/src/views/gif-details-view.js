@@ -5,7 +5,6 @@
  * @return {string} - The HTML string representing the GIF details view.
  */
 export const toGifDetailsView=(trendingItem)=>{
-  console.log(trendingItem);
   if (!trendingItem.user) {
     trendingItem.user={ username: 'Anonymous',
       avatar_url: 'https://media.giphy.com/avatars/default5.gif',

@@ -14,7 +14,6 @@ export const addUpload = (dataObject, user, gifTitle) => {
   dataObject.myUser = user;
   dataObject.myTitle = gifTitle;
   dataObject.myDate = new Date().toLocaleDateString();
-  console.log(dataObject);
   uploadsList.push(dataObject);
 
   localStorage.setItem('myUploads', JSON.stringify(uploadsList));

@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // delete-button
     if (event.target.classList.contains('delete-button')) {
-      console.log(event.target.getAttribute('delete'));
       pageMemo.tail = pageMemo.tail.prev;
       deleteUploadHandler(event.target.getAttribute('delete'));
 

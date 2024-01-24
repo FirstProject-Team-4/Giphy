@@ -13,7 +13,6 @@ import { pageMemo } from '../data/pageMemorization.js';
 export const renderSearchItems = async (searchTerm) => {
   const search=await loadSearch(searchTerm);
   q(CONTAINER_SELECTOR).innerHTML = toSearchView(search, searchTerm);
-  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML); // WHY DA FAK isn't it working in index.js
-  console.log(pageMemo);
+  pageMemo.addLast(q(CONTAINER_SELECTOR).innerHTML);
 
 };

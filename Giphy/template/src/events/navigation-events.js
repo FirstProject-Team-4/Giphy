@@ -123,7 +123,6 @@ export const renderFavorites = async () => {
   const favorites = await loadFavoriteGifs();
   q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favorites);
   if (pageMemo.tail.favorite) {
-    console.log(pageMemo.tail.favorite);
     pageMemo.tail.value = q(CONTAINER_SELECTOR).innerHTML;
     return;
   }

@@ -7,7 +7,6 @@ import { toTrendingItemView } from './trending-view.js';
  * @return {string} The HTML view of the favorite gifs.
  */
 export const toFavoritesView = (favorites) => {
-  console.log(favorites);
   if (favorites[0].myRandom) {
     return `<h2>⭐Favorite gifs:</h2>
   <h3>Favorites list is empty</h3>

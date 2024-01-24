@@ -50,7 +50,6 @@ export const loadMoreTrending = async () => {
   pageMemo.tail.offset += defaultLimit;
   const response = await fetch(Trending_URL(defaultLimit, pageMemo.tail.offset));
   const result = await response.json();
-  console.log(pageMemo.tail.offset);
   return result.data;
 };
 /**
